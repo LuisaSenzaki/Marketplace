@@ -13,19 +13,22 @@
     @section('title', 'Página Inicial')
 
     @section('content')
+
+    <!-- Sessão introdutória do Marketplace XLab -->
         <container class="home">
             <div class="inicial">     
                 <div class="left-content">
                     <div class="text-content">
                         <div class="paragraph">
-                    <h1>Marketplace XLab</h1>
-                    <h1>Seu Próximo Projeto Começa Aqui</h1>
+                            <h1>Marketplace XLab</h1>
+                            <h1>Seu Próximo Projeto Começa Aqui</h1>
+                        </div>
+
+                        <div class="text">
+                            <p>O Marketplace XLab centraliza todas as ativações, soluções e serviços da Xlab num só lugar, pensado especialmente para os criativos da TV1.</p>
+                            <p>Agilidade e autonomia para transformar suas ideias em projetos de sucesso.</p>
+                        </div>
                     </div>
-                    <div class="text">
-                    <p>O Marketplace XLab centraliza todas as ativações, soluções e serviços da Xlab num só lugar, pensado especialmente para os criativos da TV1.</p>
-                    <p>Agilidade e autonomia para transformar suas ideias em projetos de sucesso.</p>
-                    </div>
-                </div>
                     <container class="icons">
                         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="white" class="bi bi-cash-stack" viewBox="0 0 16 16">
                             <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
@@ -43,12 +46,19 @@
                         </svg>
                     </container>
                 </div>
-                </div>
+            </div>
         </container>
 
-            <section class="details">
-                <container class="products"></container>
-            </section>
+    <!-- Sessão de produtos sugeridos -->
+        <section class="details">
+            <container class="products"></container>
+        </section>
+
+    <!-- Sessão de categorias -->
+
+    <!-- Sessão de Cases e IA -->
+
+    <!-- Sessão Sobre a Xlab -->
     @endsection
 </body>
 </html>
