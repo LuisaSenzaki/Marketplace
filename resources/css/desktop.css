@@ -128,3 +128,9 @@ hr {
     margin-top: 20px;
     text-transform: uppercase;
 }
+
+.information {
+    width: 828px;
+    display: flex;
+    flex-direction: column;
+}
