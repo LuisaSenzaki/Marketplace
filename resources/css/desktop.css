@@ -105,7 +105,7 @@ body {
     height: 204px;
     border-radius: 8px;
     color: white;
-    background-color: #901859;
+    background-color: #D0147A;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -116,15 +116,15 @@ body {
 }
 
 hr {
-    background-color: #901859;
-    color: #901859;
+    background-color: #D0147A;
+    color: #D0147A;
     height: 3px;
 }
 
 .categories-title h2 {
     font-family: "gilroy-bold", sans-serif;
     font-size: 26px;
-    color: #901859;
+    color: #D0147A;
     margin-top: 20px;
     /* text-transform: uppercase; */
 }
@@ -143,14 +143,14 @@ hr {
     flex-direction: column;
     gap: 10px;
     padding: 30px;
-    border: #901859 solid 3px;
+    border: #D0147A solid 3px;
     border-radius: 8px;
 }
 
 .cases h2{
     font-family: "gilroy-bold", sans-serif;
     font-size: 20px;
-    color: #901859;
+    color: #D0147A;
     text-transform: uppercase;
 }
 
@@ -182,10 +182,10 @@ hr {
 }
 
 .saiba-mais{
-    background-color: #901859;
+    background-color: #D0147A;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 200px;
     margin-top: 20px;
     height: 30px;
     width: 200px;
@@ -199,7 +199,7 @@ hr {
 }
 
 .ai-chat iframe {
-    border: #901859 solid 2px;
+    border: #D0147A solid 2px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
@@ -222,7 +222,7 @@ hr {
 .about-xlab h2{
     font-family: "gilroy-bold", sans-serif;
     font-size: 20px;
-    color: #901859;
+    color: #D0147A;
 }
 
 .about-xlab p{

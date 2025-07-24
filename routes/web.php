@@ -9,3 +9,7 @@ Route::get('/home', function () {
 Route::get('/header', function () {
     return view('header');
 });
+
+Route::get('/cases', function () {
+    return view('cases');
+});
