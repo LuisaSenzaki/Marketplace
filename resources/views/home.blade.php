@@ -91,39 +91,28 @@
             <h2>Conheça nossos cases</h2>
             <div class="line"> <hr> </div>
 
-            <button class="seta-esquerda">
-                <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" fill="#D0147A" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
-                    <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
-                </svg>
-            </button>
-
             <container class="carrossel">
                 <div class="case-item">
-                    <img src="{{ asset('images/case1.jpg') }}" alt="Case 1">
+                    <img src="{{ asset('images/CCXP_6.jpg') }}" alt="Case 1">
                 </div>
                 <div class="case-item">
-                    <img src="{{ asset('images/case2.jpg') }}" alt="Case 2">
+                    <img src="{{ asset('images/imagem.png') }}" alt="Case 2">
                 </div>
                 <div class="case-item">
-                    <img src="{{ asset('images/case3.jpg') }}" alt="Case 3">
-                </div>
-                <div class="case-item">
-                    <img src="{{ asset('images/case3.jpg') }}" alt="Case 4">
+                    <img src="{{ asset('images/McDonalds_2.jpg') }}" alt="Case 3">
                 </div>
             </container>
-            <button class="seta-direita">
-                <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" fill="#D0147A" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
-                    <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
-                </svg>
-            </button>
+            <div class="button-container">
+                <button class="saiba-mais">Saiba Mais</button>
+            </div>
         </section>
 
         <section class="artificial-intelligence">
             <container class="ai-chat">
                 <iframe
                     src="https://www.chatbase.co/chatbot-iframe/iEZeS178uETGfn5mK5-BS"
-                    width="100%"
-                    style="height: 100%; min-height: 700px"
+                    width="520px"
+                    style="height: 100%; min-height: 525.5px"
                     frameborder="0"
                 ></iframe>
             </container>

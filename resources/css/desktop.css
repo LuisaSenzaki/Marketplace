@@ -89,7 +89,7 @@ body {
     width: 1396px;
     height: 380px;
     justify-content: center;
-
+    margin-top: 30px;
 }
 
 .categories-list {
@@ -126,14 +126,84 @@ hr {
     font-size: 26px;
     color: #901859;
     margin-top: 20px;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 .information {
-    width: 828px;
+    width: 1396px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.cases{
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    padding: 30px;
+    border: #901859 solid 3px;
+    border-radius: 8px;
 }
+
+.cases h2{
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 20px;
+    color: #901859;
+    text-transform: uppercase;
+}
+
+.cases hr {
+    width: 100%;
+}
+
+.carrossel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.case-item{
+    width: 250px;
+    height: 350px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+}
+
+.case-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.saiba-mais{
+    background-color: #901859;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    height: 30px;
+    width: 200px;
+    font-family: "gilroy-light", sans-serif;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ai-chat iframe {
+    border: #901859 solid 2px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
 
 .about {
     display: flex;
