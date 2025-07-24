@@ -14,16 +14,22 @@
 
     @section('content')
 
-    <h1>Lista de Produtos</h1>
+    <section class="filtros">
+    filtros
+    </section>
 
-<ul>
-    @foreach ($products as $product)
-        <li>
-            <strong>{{ $product->name }}</strong> - R$ {{ number_format($product->price, 2, ',', '.') }}
-        </li>
-    @endforeach
-</ul>
+    <section class="products">
+        <h1>Lista de Produtos</h1>
+        <ul>
+            @foreach ($products as $product)
+                <li>
+                    <strong>{{ $product->name }}</strong> - R$ {{ number_format($product->price, 2, ',', '.') }}
+                </li>
+            @endforeach
+        </ul>
+    </section>
 
+    
 
     @endsection
 </body>
