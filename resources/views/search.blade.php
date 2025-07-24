@@ -23,7 +23,8 @@
         <ul>
             @foreach ($products as $product)
                 <li>
-                    <strong>{{ $product->name }}</strong> - R$ {{ number_format($product->price, 2, ',', '.') }}
+                    <h1>{{ $product->name }}</h1>  
+                    <p>{{ number_format($product->price, 2, ',', '.') }}</p>
                 </li>
             @endforeach
         </ul>
