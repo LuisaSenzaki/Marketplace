@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class ProductController
 {
@@ -12,8 +12,13 @@ class ProductController
      */
     public function index()
     {
-        //
     }
+
+    public function search()
+{
+    $products = Product::all(); // ou algum filtro, se preferir
+    return view('search', compact('products'));
+}
 
     /**
      * Show the form for creating a new resource.

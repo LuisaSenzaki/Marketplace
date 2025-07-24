@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 Route::get('/home', function () {
     return view('home');
@@ -17,3 +18,5 @@ Route::get('/cases', function () {
 Route::get('/search', function () {
     return view('search');
 });
+
+Route::get('/search', [ProductController::class, 'search']);
