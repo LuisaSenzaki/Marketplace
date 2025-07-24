@@ -13,3 +13,7 @@ Route::get('/header', function () {
 Route::get('/cases', function () {
     return view('cases');
 });
+
+Route::get('/search', function () {
+    return view('search');
+});
