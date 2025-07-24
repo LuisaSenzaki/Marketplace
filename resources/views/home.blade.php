@@ -119,14 +119,26 @@
         </section>
 
         <section class="artificial-intelligence">
-            <container class="ai-chat"></container>
+            <container class="ai-chat">
+                <iframe
+                    src="https://www.chatbase.co/chatbot-iframe/iEZeS178uETGfn5mK5-BS"
+                    width="100%"
+                    style="height: 100%; min-height: 700px"
+                    frameborder="0"
+                ></iframe>
+            </container>
         </section>
+        <div class="line"> <hr> </div>
     </section>
 
-
-
     <!-- Sessão Sobre a Xlab -->
-     </container>
+    <section class="about"> 
+        <container class="about-xlab">
+            <h2>Sobre a Xlab</h2>
+            <p>A Xlab é um hub de tecnologia e inovação para comunicação e marketing, criando conexões profundas entre pessoas e marcas, utilizando a tecnologia como ferramenta para desenvolver experiências com significado. Na Xlab, acreditamos que a criatividade humana e o potencial tecnológico, juntos, são capazes de romper as fronteiras da imaginação.</p>
+            <p>Contamos com um time multidisciplinar de especialistas em tecnologia, design e gestão, focado em criar em criar soluções personalizadas, inovadoras e alinhadas ao objetivos do seu negócio. Trabalhamos com grande foco em Inteligência Artificial, e acreditamos que no cenário de dinâmico do Live Marketing, a inteligência artificial revoluciona a forma como as marcas se conectam com seu público, criando interações mais envolventes e impactantes.</p>
+        </container>
+    </section>
     @endsection
 </body>
 </html>
