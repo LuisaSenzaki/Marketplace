@@ -19,4 +19,8 @@ Route::get('/search', function () {
     return view('search');
 });
 
+Route::get('/adm', function () {
+    return view('admin');
+});
+
 Route::get('/search', [ProductController::class, 'search']);
