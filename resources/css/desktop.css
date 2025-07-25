@@ -82,6 +82,8 @@ body {
     font-family: "gilroy-light", sans-serif;
 }
 
+/* Sub Sessão das categorias de eventos */
+
 .categories {
     display: flex;
     flex-direction: column;
@@ -128,6 +130,8 @@ hr {
     margin-top: 20px;
     /* text-transform: uppercase; */
 }
+
+/* Sub Sessão de IA e Cases */
 
 .information {
     width: 1396px;
@@ -204,6 +208,8 @@ hr {
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
+/* Sub Sessão Sobre a Xlab */
+
 
 .about {
     display: flex;
@@ -229,3 +235,6 @@ hr {
     font-family: "gilroy-light", sans-serif;
     font-size: 15px;
 }
+
+/* Página de pesquisa de produtos */
+

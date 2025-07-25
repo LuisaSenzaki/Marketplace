@@ -91,7 +91,7 @@
             <h2>Conheça nossos cases</h2>
             <div class="line"> <hr> </div>
 
-            <container class="carrossel">
+            <container class="carrossel"> <!-- Imagens de Cases -->
                 <div class="case-item">
                     <img src="{{ asset('images/CCXP_6.jpg') }}" alt="Case 1">
                 </div>
