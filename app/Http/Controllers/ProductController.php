@@ -14,11 +14,40 @@ class ProductController
     {
     }
 
-    public function search()
+    public function search(Request $request)
 {
-    $products = Product::all(); // ou algum filtro, se preferir
+    $query = Product::query();
+
+    // Filtros
+    if ($request->filled('categoria')) {
+        $query->where('categoria', $request->categoria);
+    }
+
+    if ($request->filled('sistema_operacional')) {
+        $query->whereIn('sistema_operacional', $request->sistema_operacional);
+    }
+
+    if ($request->filled('modalidade')) {
+        $query->whereIn('modalidade', $request->modalidade);
+    }
+
+    if ($request->filled('preco_min')) {
+        $query->where('preco', '>=', $request->preco_min);
+    }
+
+    if ($request->filled('preco_max')) {
+        $query->where('preco', '<=', $request->preco_max);
+    }
+
+    if ($request->filled('tempo_montagem')) {
+        $query->where('tempo_montagem', '<=', $request->tempo_montagem);
+    }
+
+    $products = $query->get();
+
     return view('search', compact('products'));
 }
+
 
     /**
      * Show the form for creating a new resource.

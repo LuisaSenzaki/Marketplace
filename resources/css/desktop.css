@@ -241,3 +241,7 @@ hr {
 
 /* Página de pesquisa de produtos */
 
+.container-search{
+    display: flex;
+    flex-direction: row;
+}

@@ -15,10 +15,6 @@ Route::get('/cases', function () {
     return view('cases');
 })->name('cases');
 
-Route::get('/search', function () {
-    return view('search');
-})->name('search');
-
 Route::get('/adm', function () {
     return view('admin');
 })->name('admin');
