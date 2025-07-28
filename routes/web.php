@@ -5,7 +5,7 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/home', function () {
     return view('home');
-});
+}) ->name('home');
 
 Route::get('/header', function () {
     return view('header');
@@ -13,14 +13,14 @@ Route::get('/header', function () {
 
 Route::get('/cases', function () {
     return view('cases');
-});
+})->name('cases');
 
 Route::get('/search', function () {
     return view('search');
-});
+})->name('search');
 
 Route::get('/adm', function () {
     return view('admin');
-});
+})->name('admin');
 
-Route::get('/search', [ProductController::class, 'search']);
+Route::get('/search', [ProductController::class, 'search']) ->name('search');

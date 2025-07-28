@@ -10,7 +10,9 @@
     <div class="header-html">
         <div class="header">
             <div class="img-logo">
-                <img src="{{ asset('images/Group.png') }}" alt="Logo" class="logo">
+                <a href="{{ route('home') }}">
+                    <img src="{{ asset('images/Group.png') }}" alt="Logo" class="logo">
+                </a>
             </div>
 
             <div class="search">
@@ -25,10 +27,10 @@
 
                 <section class="search-filters">
                     <section class="search-options">
-                        <button>Todos</button>
-                        <button>Ativações</button>
-                        <button>Hub TV1</button>
-                        <button>Cases</button>
+                        <a href="{{ route('search') }}">Todos</a>
+                        <a href="#">Ativações</a>
+                        <a href="#">Hub TV1</a>
+                        <a href="{{ route('cases') }}">Cases</a>
                     </section>
                     <section class="social">
                         <a href="#">

@@ -103,7 +103,7 @@
                 </div>
             </container>
             <div class="button-container">
-                <button class="saiba-mais">Saiba Mais</button>
+                <a class="saiba-mais" href="{{ route('cases') }}">Saiba Mais</a>
             </div>
         </section>
 

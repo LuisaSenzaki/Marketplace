@@ -88,7 +88,7 @@
     gap: 10px;
 }
 
-.search-options button{
+.search-options a{
     border: none;
     background-color: #9F9F9F;
     padding: 5px;

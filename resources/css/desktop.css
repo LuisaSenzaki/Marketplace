@@ -186,10 +186,13 @@ hr {
 }
 
 .saiba-mais{
+    display: flex;
     background-color: #D0147A;
     color: white;
     border: none;
     border-radius: 200px;
+    align-items: center;
+    justify-content: center;
     margin-top: 20px;
     height: 30px;
     width: 200px;
