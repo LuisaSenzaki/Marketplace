@@ -28,7 +28,7 @@
                 <section class="search-filters">
                     <section class="search-options">
                         <a href="{{ route('search') }}">Todos</a>
-                        <a href="#">Ativações</a>
+                        <a href="{{ route('search') }}">Ativações</a>
                         <a href="#">Hub TV1</a>
                         <a href="{{ route('cases') }}">Cases</a>
                     </section>

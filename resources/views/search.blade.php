@@ -17,31 +17,39 @@
     <div class="container-search">
 
     <!-- Área de Filtros e Opções -->
-    <section class="left-side">
+    <section class="left-search">
         <h2>Ativações</h2>
         <form method="GET" action="{{ route('search') }}">
             <div class="filtros">
-                <h4>Categorias Especiais</h4>
-                <label><input type="checkbox" name="categoria[]" value="Eventos Corporativos"> Eventos Corporativos</label>
-                <label><input type="checkbox" name="categoria[]" value="Eventos de Agronegócio"> Eventos de Agronegócio</label>
-                <label><input type="checkbox" name="categoria[]" value="Eventos de Saúde"> Eventos de Saúde</label>
-                <label><input type="checkbox" name="categoria[]" value="Eventos de Beleza e Cosméticos"> Eventos de Beleza e Cosméticos</label>
-                <label><input type="checkbox" name="categoria[]" value="Eventos Alimentícios"> Eventos Alimentícios</label>
+                <div class="opcoes-filtros">
+                    <h4>Categorias Especiais</h4>
+                    <label><input type="checkbox" name="categoria[]" value="Eventos Corporativos"> Eventos Corporativos</label>
+                    <label><input type="checkbox" name="categoria[]" value="Eventos de Agronegócio"> Eventos de Agronegócio</label>
+                    <label><input type="checkbox" name="categoria[]" value="Eventos de Saúde"> Eventos de Saúde</label>
+                    <label><input type="checkbox" name="categoria[]" value="Eventos de Beleza e Cosméticos"> Eventos de Beleza e Cosméticos</label>
+                    <label><input type="checkbox" name="categoria[]" value="Eventos Alimentícios"> Eventos Alimentícios</label>
+                </div>
 
-                <h4>Sistemas Operacionais</h4>
-                <label><input type="checkbox" name="sistema_operacional[]" value="Realidade Virtual"> Realidade Virtual</label>
-                <label><input type="checkbox" name="sistema_operacional[]" value="Games Virtuais"> Games Virtuais</label>
-                <label><input type="checkbox" name="sistema_operacional[]" value="Cabines e Estações"> Cabines e Estações</label>
-                <label><input type="checkbox" name="sistema_operacional[]" value="Experiências Interativas"> Experiências Interativas</label>
-                <label><input type="checkbox" name="sistema_operacional[]" value="ChatBots e Assistentes"> ChatBots e Assistentes</label>
+                <div class="opcoes-filtros">
+                    <h4>Sistemas Operacionais</h4>
+                    <label><input type="checkbox" name="sistema_operacional[]" value="Realidade Virtual"> Realidade Virtual</label>
+                    <label><input type="checkbox" name="sistema_operacional[]" value="Games Virtuais"> Games Virtuais</label>
+                    <label><input type="checkbox" name="sistema_operacional[]" value="Cabines e Estações"> Cabines e Estações</label>
+                    <label><input type="checkbox" name="sistema_operacional[]" value="Experiências Interativas"> Experiências Interativas</label>
+                    <label><input type="checkbox" name="sistema_operacional[]" value="ChatBots e Assistentes"> ChatBots e Assistentes</label>
+                </div>
 
-                <h4>Modalidade</h4>
-                <label><input type="checkbox" name="modalidade[]" value="Presencial"> Presencial</label>
-                <label><input type="checkbox" name="modalidade[]" value="Virtual"> Virtual</label>
-                <label><input type="checkbox" name="modalidade[]" value="Híbrido"> Híbrido</label>
+                <div class="opcoes-filtros">
+                    <h4>Modalidade</h4>
+                    <label><input type="checkbox" name="modalidade[]" value="Presencial"> Presencial</label>
+                    <label><input type="checkbox" name="modalidade[]" value="Virtual"> Virtual</label>
+                    <label><input type="checkbox" name="modalidade[]" value="Híbrido"> Híbrido</label>
+                </div>
 
-                <h4>Faixa de Investimento</h4>
-                <input type="range" name="preco_min" placeholder="Min" min="0" max="10000">
+                <div class="opcoes-filtros">
+                    <h4>Faixa de Investimento</h4>
+                    <input type="range" id="preco_min" placeholder="Min" min="0" max="10000">
+                </div>
 
                 <button type="submit">Filtrar</button>
             </div>
@@ -59,7 +67,23 @@
         @endforeach
     </div>
 </div>
-    
+        <script>
+  const range = document.getElementById("preco_min");
+
+  function atualizarCorBarra() {
+    const valor = ((range.value - range.min) / (range.max - range.min)) * 100;
+    range.style.background = `linear-gradient(to right, #D0147A ${valor}%, #9F9F9F ${valor}%)`;
+  }
+
+  // Inicializa com valor atual
+  atualizarCorBarra();
+
+  // Atualiza conforme o usuário arrasta
+  range.addEventListener("input", atualizarCorBarra);
+</script>
     @endsection
+
+
+
 </body>
 </html>
