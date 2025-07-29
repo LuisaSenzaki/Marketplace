@@ -17,7 +17,7 @@ class ProductSeeder extends Seeder
         'name' => 'Vending Machine',
         'description' => 'Máquina automática de vendas',
         'price' => 5000,
-        'image' => 'vending.jpg',
+        'image' => 'vending.png',
     ]);
 
     Product::create([
@@ -25,6 +25,20 @@ class ProductSeeder extends Seeder
         'description' => 'Cafeteira inteligente com conectividade Wi-Fi',
         'price' => 1200,
         'image' => 'cafeteira.jpg',
+    ]);
+
+    Product::create([
+        'name' => 'Vending Machine',
+        'description' => 'Máquina automática de vendas',
+        'price' => 5000,
+        'image' => 'vending.png',
+    ]);
+
+    Product::create([
+        'name' => 'Vending Machine',
+        'description' => 'Máquina automática de vendas',
+        'price' => 5000,
+        'image' => 'vending.png',
     ]);
     }
 
