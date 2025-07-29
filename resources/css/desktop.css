@@ -252,13 +252,14 @@ main {
     flex-direction: row;
     align-items: center;
     margin-top: 70px;
+    margin-bottom: 200px;
     width: 1396px;
 }
 
 .left-search{
     display: flex;
     flex-direction: column;
-    width: 350px;
+    width: 215px;
     /* border-right: 1px solid #D0147A; */
     gap: 10px;
 }
@@ -278,7 +279,7 @@ main {
 
 .opcoes-filtros h4 {
     font-family: "gilroy-bold", sans-serif;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .filtros {
@@ -291,6 +292,20 @@ main {
     font-family: "gilroy-light", sans-serif;
     font-size: 14px;
     color: #333;
+}
+
+.button-container button {
+    background-color: #D0147A;
+    display: flex;
+    width: 107px;
+    height: 29px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 1000px;
+    color: white;
+    font-family: "gilroy-light", sans-serif;
 }
 
 input[type=range] {
@@ -323,6 +338,12 @@ input[type=range]::-moz-range-thumb {
     border: 2px solid #4CAF50;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.range-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .produtos{

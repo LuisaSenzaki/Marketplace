@@ -48,10 +48,13 @@
 
                 <div class="opcoes-filtros">
                     <h4>Faixa de Investimento</h4>
-                    <input type="range" id="preco_min" placeholder="Min" min="0" max="10000">
+                    <div class="range-container">
+                        <input type="range" id="preco_min" placeholder="Min" min="0" max="10000">
+                    </div>
                 </div>
-
-                <button type="submit">Filtrar</button>
+                <div class="button-container">
+                    <button type="submit">Filtrar</button>
+                </div>
             </div>
         </form>
     </section>
