@@ -473,15 +473,6 @@ input[type=range]::-moz-range-thumb {
 
 /* Subsessão Cases */
 
-/* .cases-products {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-column-gap: 20px;
-    width: 1046px;
-    padding: 20px;
-    align-items: flex-start;
-} */
-
 .name-case{
     font-family: "gilroy-bold", sans-serif;
     font-size: 16px;
@@ -507,3 +498,30 @@ input[type=range]::-moz-range-thumb {
 .title-line {
     width: 35px;
 }
+
+/* Subsessão Resultados de Busca */
+
+.results-container{
+    display: flex;
+    flex-direction: row;
+    
+    margin-top: 70px;
+    margin-bottom: 200px;
+    width: 1396px;
+    gap: 61px;
+}
+
+.left-side-results{
+    display: flex;
+    flex-direction: column;
+    width: 215px;
+    gap: 10px;
+}
+
+.left-side-results h2{
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 32px;
+    color: #D0147A;
+    margin-bottom: 20px;
+}
+

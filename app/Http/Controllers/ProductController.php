@@ -16,11 +16,20 @@ class ProductController
 
     public function search(Request $request)
 {
+      $searchTerm = $request->input('query');
     $query = Product::query();
 
-    // Filtros
+    // Aplica busca por nome/descrição SE o campo for preenchido
+    if (!empty($searchTerm)) {
+        $query->where(function ($q) use ($searchTerm) {
+            $q->where('name', 'like', "%{$searchTerm}%")
+              ->orWhere('description', 'like', "%{$searchTerm}%");
+        });
+    }
+
+    // Aplica os filtros (mesmo se não houver busca)
     if ($request->filled('categoria')) {
-        $query->where('categoria', $request->categoria);
+        $query->whereIn('categoria', $request->categoria);
     }
 
     if ($request->filled('sistema_operacional')) {
@@ -43,9 +52,10 @@ class ProductController
         $query->where('tempo_montagem', '<=', $request->tempo_montagem);
     }
 
+    // Busca tudo final
     $products = $query->get();
 
-    return view('search', compact('products'));
+    return view('search', compact('products', 'searchTerm'));
 }
 
 

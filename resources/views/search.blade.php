@@ -15,43 +15,87 @@
     @section('content')
 
     <div class="container-search">
-
-    <!-- Área de Filtros e Opções -->
+        <!-- Filtros -->
         <section class="left-search">
-            <h2>Ativações</h2>
+            @if(isset($searchTerm) && $searchTerm != '')
+                <h2>{{ $searchTerm }}</h2>
+            @else 
+                <h2>Ativações</h2>
+            @endif
             <form method="GET" action="{{ route('search') }}">
                 <div class="filtros">
+                    <!-- CATEGORIAS -->
                     <div class="opcoes-filtros">
                         <h4>Categorias Especiais</h4>
-                        <label><input type="checkbox" name="categoria[]" value="Eventos Corporativos"> Eventos Corporativos</label>
-                        <label><input type="checkbox" name="categoria[]" value="Eventos de Agronegócio"> Eventos de Agronegócio</label>
-                        <label><input type="checkbox" name="categoria[]" value="Eventos de Saúde"> Eventos de Saúde</label>
-                        <label><input type="checkbox" name="categoria[]" value="Eventos de Beleza e Cosméticos"> Eventos de Beleza e Cosméticos</label>
-                        <label><input type="checkbox" name="categoria[]" value="Eventos Alimentícios"> Eventos Alimentícios</label>
+                        @php
+                            $categorias = [
+                                'Eventos Corporativos',
+                                'Eventos de Agronegócio',
+                                'Eventos de Saúde',
+                                'Eventos de Beleza e Cosméticos',
+                                'Eventos Alimentícios'
+                            ];
+                        @endphp
+                        @foreach($categorias as $categoria)
+                            <label>
+                                <input type="checkbox" name="categoria[]" value="{{ $categoria }}"
+                                    {{ in_array($categoria, request()->input('categoria', [])) ? 'checked' : '' }}>
+                                {{ $categoria }}
+                            </label>
+                        @endforeach
                     </div>
 
+                    <!-- SISTEMAS OPERACIONAIS -->
                     <div class="opcoes-filtros">
                         <h4>Sistemas Operacionais</h4>
-                        <label><input type="checkbox" name="sistema_operacional[]" value="Realidade Virtual"> Realidade Virtual</label>
-                        <label><input type="checkbox" name="sistema_operacional[]" value="Games Virtuais"> Games Virtuais</label>
-                        <label><input type="checkbox" name="sistema_operacional[]" value="Cabines e Estações"> Cabines e Estações</label>
-                        <label><input type="checkbox" name="sistema_operacional[]" value="Experiências Interativas"> Experiências Interativas</label>
-                        <label><input type="checkbox" name="sistema_operacional[]" value="ChatBots e Assistentes"> ChatBots e Assistentes</label>
+                        @php
+                            $sistemas = [
+                                'Realidade Virtual',
+                                'Games Virtuais',
+                                'Cabines e Estações',
+                                'Experiências Interativas',
+                                'ChatBots e Assistentes'
+                            ];
+                        @endphp
+                        @foreach($sistemas as $so)
+                            <label>
+                                <input type="checkbox" name="sistema_operacional[]" value="{{ $so }}"
+                                    {{ in_array($so, request()->input('sistema_operacional', [])) ? 'checked' : '' }}>
+                                {{ $so }}
+                            </label>
+                        @endforeach
                     </div>
 
+                    <!-- MODALIDADE -->
                     <div class="opcoes-filtros">
                         <h4>Modalidade</h4>
-                        <label><input type="checkbox" name="modalidade[]" value="Presencial"> Presencial</label>
-                        <label><input type="checkbox" name="modalidade[]" value="Virtual"> Virtual</label>
-                        <label><input type="checkbox" name="modalidade[]" value="Híbrido"> Híbrido</label>
+                        @php
+                            $modalidades = ['Presencial', 'Virtual', 'Híbrido'];
+                        @endphp
+                        @foreach($modalidades as $modo)
+                            <label>
+                                <input type="checkbox" name="modalidade[]" value="{{ $modo }}"
+                                    {{ in_array($modo, request()->input('modalidade', [])) ? 'checked' : '' }}>
+                                {{ $modo }}
+                            </label>
+                        @endforeach
                     </div>
 
+                    <!-- FAIXA DE INVESTIMENTO -->
                     <div class="opcoes-filtros">
                         <h4>Faixa de Investimento</h4>
                         <div class="range-container">
-                            <input type="range" id="preco_min" placeholder="Min" min="0" max="10000">
+                            <input 
+                                type="range" 
+                                id="preco_min" 
+                                name="preco_min" 
+                                min="0" 
+                                max="10000" 
+                                value="{{ request('preco_min', 0) }}">
                         </div>
                     </div>
+
+                    <!-- BOTÃO FILTRAR -->
                     <div class="button-container">
                         <button type="submit">Filtrar</button>
                     </div>
@@ -59,34 +103,35 @@
             </form>
         </section>
 
-    <!-- Lista de Produtos -->
+        <!-- Produtos -->
         <div class="produtos">
-            @foreach($products as $product)
-            <div class="card-produto">
-                <img src="{{ asset('storage/'.$product->image) }}" alt="Produto">
-                <p class="name-product">{{ $product->name }}</p>
-                <p class="preco">R$ {{ number_format($product->price, 2, ',', '.') }}</p>
-            </div>
-            @endforeach
+            @if($products->isEmpty())
+                <p>Nenhum produto encontrado.</p>
+            @else
+                @foreach($products as $product)
+                    <div class="card-produto">
+                        <img src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->name }}">
+                        <p class="name-product">{{ $product->name }}</p>
+                        <p class="preco">R$ {{ number_format($product->price, 2, ',', '.') }}</p>
+                    </div>
+                @endforeach
+            @endif
         </div>
     </div>
-        <script>
-  const range = document.getElementById("preco_min");
 
-  function atualizarCorBarra() {
-    const valor = ((range.value - range.min) / (range.max - range.min)) * 100;
-    range.style.background = `linear-gradient(to right, #D0147A ${valor}%, #9F9F9F ${valor}%)`;
-  }
+    <!-- Script da barra de preço -->
+    <script>
+        const range = document.getElementById("preco_min");
 
-  // Inicializa com valor atual
-  atualizarCorBarra();
+        function atualizarCorBarra() {
+            const valor = ((range.value - range.min) / (range.max - range.min)) * 100;
+            range.style.background = `linear-gradient(to right, #D0147A ${valor}%, #9F9F9F ${valor}%)`;
+        }
 
-  // Atualiza conforme o usuário arrasta
-  range.addEventListener("input", atualizarCorBarra);
-</script>
+        atualizarCorBarra();
+        range.addEventListener("input", atualizarCorBarra);
+    </script>
     @endsection
-
-
 
 </body>
 </html>

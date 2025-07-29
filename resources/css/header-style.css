@@ -44,6 +44,10 @@
     cursor: pointer;
 }
 
+form {
+    flex: 1;
+}
+
 .input{
     width: 100%;
     padding: 8px 20px;
