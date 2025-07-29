@@ -104,10 +104,14 @@
         </section>
 
         <!-- Produtos -->
-        <div class="produtos">
-            @if($products->isEmpty())
-                <p>Nenhum produto encontrado.</p>
-            @else
+         <div class="product-side">
+         @if($products->isEmpty())
+            <div class="sem-resultados">
+                <p>Nenhuma ativação encontrada por agora.</p>
+                <img src="{{ asset('images/triste.png') }}" alt="Sem Resultados"> 
+            </div>
+        @else
+            <div class="produtos">
                 @foreach($products as $product)
                     <div class="card-produto">
                         <img src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->name }}">
@@ -116,6 +120,7 @@
                     </div>
                 @endforeach
             @endif
+            </div>
         </div>
     </div>
 

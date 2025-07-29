@@ -525,3 +525,32 @@ input[type=range]::-moz-range-thumb {
     margin-bottom: 20px;
 }
 
+/* Sem Resultados  */
+
+.sem-resultados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.sem-resultados img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.sem-resultados p{
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 18px;
+    color: #D0147A;
+    text-align: center;
+}
+
+.product-side{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1046px;
+}
+
