@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HubProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
@@ -20,3 +21,5 @@ Route::get('/adm', function () {
 })->name('admin');
 
 Route::get('/search', [ProductController::class, 'search']) ->name('search');
+
+Route::get('/hubtv1', [HubProductController::class, 'hubtv1'])->name('hubtv1');
