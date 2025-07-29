@@ -14,7 +14,22 @@ class CasesImagesSeeder extends Seeder
     public function run(): void
     {
         CasesImages::create([
-            'name' => 'Vending Machine',
+            'name' => 'CCXP 24',
+            'image' => 'vending.png',
+        ]);
+
+        CasesImages::create([
+            'name' => 'VIVO 2024',
+            'image' => 'vending.png',
+        ]);
+
+        CasesImages::create([
+            'name' => 'CCXP 24',
+            'image' => 'vending.png',
+        ]);
+
+        CasesImages::create([
+            'name' => 'CCXP 24',
             'image' => 'vending.png',
         ]);
     }

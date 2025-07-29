@@ -14,15 +14,25 @@
 
     @section('content')
     <div class="container-hub">
+
         <!-- Área de Produtos -->
         <section class="left-hub">
-            <h2>Hub TV1</h2>
-            <div class="hub-products">
+            <h2>Cases</h2>
+            <div class="cases-products">
                 @foreach($casesImages as $product)
-                    <div class="hub-product">
-                        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
-                        <h3 class="name-product-hub">{{ $product->name }}</h3>
-                        <p class="description-product">{{ $product->description }}</p>
+               
+                    <div class="cases-product">
+                        <h3 class="name-case">{{ $product->name }}</h3>
+                        <div class="title-line">
+                            <hr>
+                        </div>
+                        <div class="container-images-cases">
+                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+                        </div>
                     </div>
                 @endforeach
             </div>

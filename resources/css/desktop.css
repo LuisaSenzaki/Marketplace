@@ -473,3 +473,37 @@ input[type=range]::-moz-range-thumb {
 
 /* Subsessão Cases */
 
+/* .cases-products {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 20px;
+    width: 1046px;
+    padding: 20px;
+    align-items: flex-start;
+} */
+
+.name-case{
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 16px;
+    color: black;
+    margin-top: 5px;
+}
+
+.cases-product {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    width: 250px;
+    height: 350px;
+}
+
+.container-images-cases{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.title-line {
+    width: 35px;
+}
