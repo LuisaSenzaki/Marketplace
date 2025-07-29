@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CasesImagesController;
 use App\Http\Controllers\HubProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -12,14 +13,10 @@ Route::get('/header', function () {
     return view('header');
 });
 
-Route::get('/cases', function () {
-    return view('cases');
-})->name('cases');
-
 Route::get('/adm', function () {
     return view('admin');
 })->name('admin');
 
 Route::get('/search', [ProductController::class, 'search']) ->name('search');
-
 Route::get('/hubtv1', [HubProductController::class, 'hubtv1'])->name('hubtv1');
+Route::get('/cases', [CasesImagesController::class, 'cases'])->name('cases');

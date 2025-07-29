@@ -28,5 +28,9 @@ class DatabaseSeeder extends Seeder
     $this->call([
     HubProductSeeder::class,
     ]);
+
+    $this->call([
+        CasesImagesSeeder::class,
+    ]);
     }
 }
