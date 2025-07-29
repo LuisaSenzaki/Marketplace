@@ -21,13 +21,13 @@
                 @foreach($hubProducts as $product)
                     <div class="hub-product">
                         <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
-                        <h3>{{ $product->name }}</h3>
-                        <p>{{ $product->description }}</p>
+                        <h3 class="name-product-hub">{{ $product->name }}</h3>
+                        <p class="description-product">{{ $product->description }}</p>
                     </div>
                 @endforeach
             </div>
         </section>
-
+    </div>
     @endsection
 </body>
 </html>

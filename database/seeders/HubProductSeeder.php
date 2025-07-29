@@ -24,5 +24,29 @@ class HubProductSeeder extends Seeder
         'description' => 'Vende snacks automaticamente!',
         'image' => 'snack.png',
     ]);
+
+    HubProduct::create([
+        'name' => 'Máquina de Snacks',
+        'description' => 'Vende snacks automaticamente!',
+        'image' => 'snack.png',
+    ]);
+
+    HubProduct::create([
+        'name' => 'Máquina de Snacks',
+        'description' => 'Vende snacks automaticamente!',
+        'image' => 'snack.png',
+    ]);
+
+    HubProduct::create([
+        'name' => 'Máquina de Snacks',
+        'description' => 'Vende snacks automaticamente!',
+        'image' => 'snack.png',
+    ]);
+
+    HubProduct::create([
+        'name' => 'Máquina de Snacks',
+        'description' => 'Vende snacks automaticamente!',
+        'image' => 'snack.png',
+    ]);
     }
 }

@@ -40,6 +40,14 @@ class ProductSeeder extends Seeder
         'price' => 5000,
         'image' => 'vending.png',
     ]);
+
+    Product::create([
+        'name' => 'Vending Machine',
+        'description' => 'Máquina automática de vendas',
+        'price' => 5000,
+        'image' => 'vending.png',
+    ]);
+    
     }
 
 }
