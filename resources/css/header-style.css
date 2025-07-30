@@ -64,15 +64,12 @@ form {
     justify-content: space-between;
 }
 
-.social{
+.social a{
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 5px;
     cursor: pointer;
-}
-
-.social p{
     color: #9F9F9F;
     font-size: 15px;
 }
