@@ -78,9 +78,11 @@ class ProductController
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+
+    public function show($id)
     {
-        //
+    $product = Product::findOrFail($id); // Busca o produto pelo ID ou retorna 404
+    return view('productpage', compact('product'));
     }
 
     /**

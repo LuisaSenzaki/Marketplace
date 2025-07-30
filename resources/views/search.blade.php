@@ -113,11 +113,11 @@
         @else
             <div class="produtos">
                 @foreach($products as $product)
-                    <div class="card-produto">
+                    <a href="{{ route('produto.show', $product->id) }}" class="card-produto"> <!-- página do produto específico -->
                         <img src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->name }}">
                         <p class="name-product">{{ $product->name }}</p>
                         <p class="preco">R$ {{ number_format($product->price, 2, ',', '.') }}</p>
-                    </div>
+                    </a>
                 @endforeach
             @endif
             </div>

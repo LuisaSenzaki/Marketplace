@@ -554,3 +554,176 @@ input[type=range]::-moz-range-thumb {
     width: 1046px;
 }
 
+/* Página do Produto Específico */
+
+.container-product{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 200px;
+    width: 1396px;
+    gap: 70px;
+}
+
+.information-inicial{
+    display: flex;
+    flex-direction: row;
+    gap: 140px;
+}
+
+.text-right{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 20px;
+    width: 100%;
+}
+
+.text-right h2{
+    display: flex;
+    justify-content: flex-start;
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 32px;
+}
+
+.image-container-left{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.image-container-left img {
+    width: 600px;
+}
+
+.tempo-container{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.tempo-container p{
+    font-family: "gilroy-light", sans-serif;
+    font-size: 16px;
+}
+
+.tempo{
+    border-right:#333 solid 1px;
+}
+
+.line-tempo hr{
+    background-color: #9F9F9F;
+    color: #9F9F9F;
+    height: 1px;
+}
+
+.valor-container {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.valor {
+    font-size: 40px;
+    font-family: "gilroy-light", sans-serif;
+    color: #D0147A;
+}
+
+.text-valor {
+    font-size: 24px;
+    font-family: "gilroy-light", sans-serif;
+    color: #D0147A;
+}
+
+.text-right h3 {
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 24px;
+}
+
+.info h4{
+    font-family: 'gilroy-bold', sans-serif;
+    font-size: 16px;
+}
+
+.info p{
+    font-family: "gilroy-light", sans-serif;
+    font-size: 16px;
+}
+
+.btn-comprar {
+    width: 335px;
+    background-color: #D0147A;
+    color: white;
+    border: none;
+    border-radius: 1000px;
+    padding: 10px 20px;
+    font-family: "gilroy-light", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-calculadora {
+    display: flex;
+    justify-content: center;
+}
+
+.information-detalhes{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.information-detalhes h1{
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 24px;
+}
+
+.information-detalhes p{
+    font-family: "gilroy-light", sans-serif;
+}
+
+.video{
+    display: flex;
+    justify-content: center;
+}
+
+.video iframe {
+    width: 1000px;
+    height: 450px;
+}
+
+.divider hr{
+    background-color: #9F9F9F;
+    color: #9F9F9F;
+    height: 1px;
+}
+
+.cases-especificos {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.cases-especificos h2 {
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 24px;
+}
+
+.cases-imgs {
+    display: grid;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 10px;
+    width: 1046px;
+    padding: 0px 20px;
+}
+
+.cases-imgs img{
+    width: 350px;
+    height: 350px;
+}
