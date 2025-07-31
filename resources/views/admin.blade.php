@@ -104,7 +104,10 @@
                             </button>
                         </form>
                     </div>
+
+                    
                 </li>
+                <div class="hr-produto"><hr></div>
             @endforeach
         </ul>
     </div>

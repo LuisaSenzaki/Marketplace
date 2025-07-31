@@ -848,3 +848,9 @@ input[type=range]::-moz-range-thumb {
     flex-direction: row;
     gap: 33px;
 }
+
+.hr-produto hr {
+    background-color: #9F9F9F;
+    color: #9F9F9F;
+    height: 1px; 
+}
