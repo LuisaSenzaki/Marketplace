@@ -83,6 +83,7 @@ class ProductController
         'dimensoes' => 'nullable|string',
         'publico_sugerido' => 'nullable|string',
         'tecnologias_utilizadas' => 'nullable|string',
+        'description' => 'nullable|string',
     ]);
 
     // Salvar imagem principal
@@ -136,6 +137,7 @@ class ProductController
         'dimensoes' => 'nullable|string',
         'publico_sugerido' => 'nullable|string',
         'tecnologias_utilizadas' => 'nullable|string',
+        'description' => 'nullable|string',
     ]);
 
     // Atualiza imagens se forem enviadas novas

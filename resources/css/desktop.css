@@ -843,6 +843,23 @@ input[type=range]::-moz-range-thumb {
     padding: 40px;
 }
 
+
+/* Página de Edição de Produto Já Cadastrado */
+.edit-produto{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 70px;
+    margin-bottom: 200px;
+    width: 1396px;
+}
+
+.edit-produto h2{
+    color: #D0147A;
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 24px;
+}
+
 .left-side-infos {
     display: flex;
     flex-direction: row;
@@ -853,4 +870,110 @@ input[type=range]::-moz-range-thumb {
     background-color: #9F9F9F;
     color: #9F9F9F;
     height: 1px; 
+}
+
+.first-container-edit{
+    display: flex;
+    flex-direction: row;
+    height: 506px;
+    gap: 50px;
+    margin-bottom: 60px;
+}
+
+.first-container-edit img {
+    width: 500px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.texto-completo-edit{
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.texto-info-edit{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.title-texto-completo-edit p{
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 24px;
+}
+
+.texto-info-edit input{
+    font-family: "gilroy-light", sans-serif;
+    color: #9F9F9F;
+    background: #fff;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    padding: 10px;
+} 
+
+.second-section-edit{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.infos-complementares h3{
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 20px;
+}
+
+.infos-complementares-edit{
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0px;
+    gap: 20px;
+}
+
+.spam-area{
+    border: #333 solid 1px;
+    width: 350px;
+    height: 30px;
+}
+
+.infos-complementares-edit p{
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+.infos-complementares-edit input{
+    color: #9F9F9F;
+    font-family: "gilroy-light", sans-serif;
+    border: #9F9F9F solid 1px;
+    width: 350px;
+    height: 30px;
+    padding: 10px;
+}
+
+.descricao-edit{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.descricao-edit-title{
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 20px;
+}
+
+.descricao-edit input{
+    font-family: "gilroy-light", sans-serif;
+    border: #9F9F9F solid 1px;
+    width: 100%;
+    height: 330px;
 }
