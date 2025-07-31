@@ -21,3 +21,7 @@ Route::get('/search', [ProductController::class, 'search']) ->name('search');
 Route::get('/produto/{id}', [ProductController::class, 'show'])->name('produto.show');
 Route::get('/hubtv1', [HubProductController::class, 'hubtv1'])->name('hubtv1');
 Route::get('/cases', [CasesImagesController::class, 'cases'])->name('cases');
+
+Route::get('/admin', [ProductController::class, 'admin'])->name('admin');
+Route::post('/admin/store', [ProductController::class, 'store'])->name('admin.store');
+Route::delete('/admin/{product}', [ProductController::class, 'destroy'])->name('admin.destroy');

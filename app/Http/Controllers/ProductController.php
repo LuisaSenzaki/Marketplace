@@ -72,7 +72,35 @@ class ProductController
      */
     public function store(Request $request)
     {
-        //
+       $data = $request->validate([
+        'name' => 'required|string',
+        'categoria' => 'nullable|string',
+        'sistema_operacional' => 'nullable|string',
+        'modalidade' => 'nullable|string',
+        'price' => 'nullable|string',
+        'tempo_montagem' => 'nullable|string',
+        'tempo_desenvolvimento' => 'nullable|string',
+        'capacidade_maxima' => 'nullable|string',
+        'dimensoes' => 'nullable|string',
+        'publico_sugerido' => 'nullable|string',
+        'tecnologias_utilizadas' => 'nullable|string',
+    ]);
+
+    // Salvar imagem principal
+    if ($request->hasFile('image')) {
+        $data['image'] = $request->file('image')->store('produtos', 'public');
+    }
+
+    // Salvar imagens adicionais
+    for ($i = 1; $i <= 8; $i++) {
+        $field = 'imagem' . $i;
+        if ($request->hasFile($field)) {
+            $data[$field] = $request->file($field)->store('produtos', 'public');
+        }
+    }
+
+    Product::create($data);
+    return redirect()->route('admin')->with('success', 'Produto salvo com sucesso!');
     }
 
     /**
@@ -106,6 +134,13 @@ class ProductController
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('admin')->with('success', 'Produto excluído com sucesso!');
+    }
+
+    public function admin()
+    {
+        $products = Product::all();
+        return view('admin', compact('products'));
     }
 }
