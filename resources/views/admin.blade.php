@@ -14,14 +14,29 @@
 
     @section('content')
     
-     <h1>Painel de Administração</h1>
+    <container class="admin-page">
+    <h1>Painel Administrativo</h1>
+
 
     @if(session('success'))
         <p style="color: green;">{{ session('success') }}</p>
     @endif
+    <div class="options-page"> 
+        <div class="add-produto">
+            <h2>Produtos</h2>
+            <!-- Botão que exibe o formulário e oculta a lista -->
+            <button onclick="mostrarFormulario()">Novo Produto <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                </svg></button>
+        </div>
 
-    <!-- Botão que exibe o formulário e oculta a lista -->
-    <button onclick="mostrarFormulario()">Adicionar novo produto</button>
+        <div class="options-especifica">
+            <button>Produtos</button>
+            <button>Hub TV1</button>
+        </div>
+
+        <div class="hr-options"><hr></div>
+    </div>
 
     <!-- Formulário de Adicionar Produto -->
     <div id="formulario-produto" style="display: none; margin-top: 20px;">
@@ -57,20 +72,43 @@
 
     <!-- Lista de produtos já cadastrados -->
     <div id="lista-produtos">
-        <h2 style="margin-top: 40px;">Produtos Cadastrados</h2>
-        <ul>
+        <ul class="produtos-totais">
             @foreach($products as $product)
-                <li>
-                    {{ $product->name }} — {{ $product->categoria }}
-                    <form action="{{ route('admin.destroy', $product) }}" method="POST" style="display:inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit">Excluir</button>
-                    </form>
+                <li class="produto-infos"> 
+                    <div class="left-side-infos">
+                        <img class="perfil-img" src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->name }}">
+                        <div class="produto-texto">
+                            <p>{{ $product->name }} </p>
+                            <p>{{ $product->modalidade }}</p>
+                            <p class="price-infos">R$ {{ number_format($product->price, 2, ',', '.')}}</p>
+                        </div>
+                    </div>
+                    <div class="btn-edicao">
+                    <!-- Botão de edição -->
+                        <a href="{{ route('admin.edit', $product) }}" title="Editar produto" style="margin-right: 8px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                class="bi bi-pencil" viewBox="0 0 16 16">
+                                <path d="M12.146.854a.5.5 0 0 1 .708 0l2.292 2.292a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2L2 11.207V13h1.793L14 3.793 11.207 2z"/>
+                            </svg>
+                        </a>
+
+                        <form action="{{ route('admin.destroy', $product) }}" method="POST" class="form-excluir" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" title="Excluir produto">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                    class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
                 </li>
             @endforeach
         </ul>
     </div>
+    </container>
 
     <!-- Script para alternar visibilidade -->
     <script>
@@ -80,6 +118,20 @@
             event.target.style.display = 'none';
         }
     </script>
+
+    <script>
+    // Seleciona todos os formulários de exclusão
+    const forms = document.querySelectorAll('.form-excluir');
+
+    forms.forEach(form => {
+        form.addEventListener('submit', function (e) {
+            const confirmed = confirm('Tem certeza que deseja excluir este produto? Essa ação não pode ser desfeita.');
+            if (!confirmed) {
+                e.preventDefault(); // Cancela o envio do form
+            }
+        });
+    });
+</script>
     @endsection
 </body>
 </html>

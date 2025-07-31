@@ -25,3 +25,6 @@ Route::get('/cases', [CasesImagesController::class, 'cases'])->name('cases');
 Route::get('/admin', [ProductController::class, 'admin'])->name('admin');
 Route::post('/admin/store', [ProductController::class, 'store'])->name('admin.store');
 Route::delete('/admin/{product}', [ProductController::class, 'destroy'])->name('admin.destroy');
+
+Route::get('/admin/{product}/edit', [ProductController::class, 'edit'])->name('admin.edit');
+Route::put('/admin/{product}', [ProductController::class, 'update'])->name('admin.update');

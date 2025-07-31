@@ -74,7 +74,6 @@ class ProductController
     {
        $data = $request->validate([
         'name' => 'required|string',
-        'categoria' => 'nullable|string',
         'sistema_operacional' => 'nullable|string',
         'modalidade' => 'nullable|string',
         'price' => 'nullable|string',
@@ -118,7 +117,7 @@ class ProductController
      */
     public function edit(Product $product)
     {
-        //
+        return view('edit-product', compact('product'));
     }
 
     /**
@@ -126,7 +125,34 @@ class ProductController
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $data = $request->validate([
+        'name' => 'required|string',
+        'sistema_operacional' => 'nullable|string',
+        'modalidade' => 'nullable|string',
+        'price' => 'nullable|string',
+        'tempo_montagem' => 'nullable|string',
+        'tempo_desenvolvimento' => 'nullable|string',
+        'capacidade_maxima' => 'nullable|string',
+        'dimensoes' => 'nullable|string',
+        'publico_sugerido' => 'nullable|string',
+        'tecnologias_utilizadas' => 'nullable|string',
+    ]);
+
+    // Atualiza imagens se forem enviadas novas
+    if ($request->hasFile('image')) {
+        $data['image'] = $request->file('image')->store('produtos', 'public');
+    }
+
+    for ($i = 1; $i <= 8; $i++) {
+        $field = 'imagem' . $i;
+        if ($request->hasFile($field)) {
+            $data[$field] = $request->file($field)->store('produtos', 'public');
+        }
+    }
+
+    $product->update($data);
+
+    return redirect()->route('admin')->with('success', 'Produto atualizado com sucesso!');
     }
 
     /**

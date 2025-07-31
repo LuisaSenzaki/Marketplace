@@ -727,3 +727,124 @@ input[type=range]::-moz-range-thumb {
     width: 350px;
     height: 350px;
 }
+
+/* Página Administrativa */
+
+.admin-page {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 70px;
+    margin-bottom: 200px;
+    width: 1396px;
+}
+
+.admin-page h1 {
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 32px;
+    color: #D0147A;
+    text-align: center;
+}
+
+.add-produto {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.add-produto h2 {
+    font-family: "gilroy-bold", sans-serif;
+    color: #D0147A;
+    font-size: 24px;
+}
+
+.options-page {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+}
+
+.options-especifica {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.options-especifica button {
+    font-family: "gilroy-light", sans-serif;
+    background: #9F9F9F;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.add-produto button {
+    font-family: "gilroy-light", sans-serif;
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    color: white;
+    background: #D0147A;
+    padding: 10px 15px;
+    border-radius: 10000px;
+    align-items: center;
+    gap: 5px;
+}
+
+.hr-options hr{
+    background-color: #9F9F9F;
+    color: #9F9F9F;
+    height: 1px;
+}
+
+.perfil-img {
+    width: 142px;
+    height: 142px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.produtos-totais{
+    display: flex;
+    flex-direction: column;
+    gap: 31px;
+}
+
+.produto-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    justify-content: center;
+}
+
+.produto-texto p{
+    font-family: "gilroy-light", sans-serif;
+    font-size: 20px;
+}
+
+.price-infos {
+    color: #D0147A;
+}
+
+.produto-infos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btn-edicao {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    color: #D0147A;
+    padding: 40px;
+}
+
+.left-side-infos {
+    display: flex;
+    flex-direction: row;
+    gap: 33px;
+}
