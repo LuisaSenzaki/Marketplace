@@ -26,7 +26,7 @@
                 <h2>{{ $product->name }}</h2>
 
                 <div class="tempo-container">
-                    <p class="tempo">{{ $product->development_time }}</p>
+                    <p class="tempo">{{ $product->tempo_desenvolvimento }}</p>
                     <p class="tempo-termo">Tempo de Desenvolvimento</p>
                 </div>
 
@@ -43,22 +43,22 @@
 
                 <div class="info">
                     <h4>Tempo de Instalação:</h4>
-                    <p>{{ $product->installation_time }}</p>
+                    <p>{{ $product->tempo_montagem }}</p>
                 </div>
 
                 <div class="info">
                     <h4>Tempo de Desenvolvimento:</h4>
-                    <p>{{ $product->development_time }}</p>
+                    <p>{{ $product->tempo_desenvolvimento }}</p>
                 </div>
 
                 <div class="info">
                     <h4>Capacidade Máxima:</h4>
-                    <p>{{ $product->max_capacity }}</p>
+                    <p>{{ $product->capacidade_maxima }}</p>
                 </div>
 
                 <div class="info">
                     <h4>Dimensões:</h4>
-                    <p>{{ $product->dimensions }}</p>
+                    <p>{{ $product->dimensoes }}</p>
                 </div>
 
                 <div class='btn-calculadora'>
@@ -73,12 +73,12 @@
 
             <div class="info">
                 <h4>Público Sugerido:</h4>
-                <p>{{ $product->suggested_audience }}</p>
+                <p>{{ $product->publico_sugerido }}</p>
             </div>
 
             <div class="info">
                 <h4>Tecnologias Utilizadas:</h4>
-                <p>{{ $product->used_technologies }}</p>
+                <p>{{ $product->tecnologias_utilizadas }}</p>
             </div>
         </section>
 
