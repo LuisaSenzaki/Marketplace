@@ -95,37 +95,43 @@
 
             <div class="descricao-edit">
                 <div class="descricao-edit-title">
-                    <h3>Descrição da Ativação:</h3>
+                    <h3>Descrição da Ativação:</h3> <!-- ARRUMAR STYLE -->
                 </div>
-                <input type="text" name="description" value="{{ $product->description }}">
+                <textarea name="description" id="description" >{{ $product->description }}</textarea>
             </div>
         </div>
 
         <!-- Cases Adicionados referente a ativação-->
-        <div class="cases-imagens-edit" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
-            @for ($i = 1; $i <= 8; $i++)
-                @php
-                    $campo = 'imagem' . $i;
-                    $imagemUrl = $product->$campo ? asset('storage/' . $product->$campo) : asset('icons/image-placeholder.svg');
-                @endphp
-                <div class="imagem-box">
-                    <label for="imagem{{ $i }}">
-                        <img id="preview-imagem{{ $i }}"
-                            src="{{ $imagemUrl }}"
-                            alt="Preview Imagem {{ $i }}"
-                            style="width: 120px; height: 120px; object-fit: cover; border: 1px solid #ccc;">
-                    </label>
-                    <input type="file"
-                        name="imagem{{ $i }}"
-                        id="imagem{{ $i }}"
-                        style="display: none;"
-                        accept="image/*"
-                        onchange="mostrarPreview(this, 'preview-imagem{{ $i }}')">
-                </div>
-            @endfor
-        </div>
+        <div class="cases-container-edit">
+            <h2>Cases</h2>       
+            <div class="cases-imagens-edit">
+                @for ($i = 1; $i <= 8; $i++)
+                    @php
+                        $campo = 'imagem' . $i;
+                        $imagemUrl = $product->$campo ? asset('storage/' . $product->$campo) : asset('icons/image-placeholder.svg');
+                    @endphp
+                    <div class="imagem-box">
+                        <label for="imagem{{ $i }}" style="display: flex; justify-content: center;">
+                            <img id="preview-imagem{{ $i }}"
+                                src="{{ $imagemUrl }}"
+                                alt="Preview Imagem {{ $i }}"
+                                style="width: 200px; height: 200px; object-fit: cover; border: 1px solid #9F9F9F; border-radius: 8px; padding: 10px; cursor: pointer;">
+                        </label>
+                        <input type="file"
+                            name="imagem{{ $i }}"
+                            id="imagem{{ $i }}"
+                            style="display: none;"
+                            accept="image/*"
+                            onchange="mostrarPreview(this, 'preview-imagem{{ $i }}')">
+                    </div>
+                @endfor
+            </div>
 
-        <button type="submit">Salvar Alterações</button>
+            <div class="btn-edit">
+                <button class="btn-edit-cancelar" type="button" onclick="history.back()">Cancelar</button>
+                <button class="btn-edit-salvar" type="submit">Salvar Alterações</button>
+            </div>
+        </div>
         </form>
     </div>
 

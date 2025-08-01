@@ -550,7 +550,7 @@ input[type=range]::-moz-range-thumb {
 .product-side{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: 1046px;
 }
 
@@ -971,9 +971,53 @@ input[type=range]::-moz-range-thumb {
     font-size: 20px;
 }
 
-.descricao-edit input{
+.descricao-edit textarea{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
     font-family: "gilroy-light", sans-serif;
     border: #9F9F9F solid 1px;
     width: 100%;
     height: 330px;
+    padding: 10px;
+}
+
+.cases-imagens-edit {
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    align-items: center;
+}
+
+.cases-container-edit {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+.btn-edit {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+.btn-edit-cancelar {
+    font-family: "gilroy-light", sans-serif;
+    padding: 10px 30px;
+    background: #9F9F9F;
+    color: #fff;
+    border-radius: 1000px;
+    cursor: pointer;
+}
+
+.btn-edit-salvar {
+    font-family: "gilroy-light", sans-serif;
+    color: white;
+    padding: 10px 30px;
+    background: #D0147A;
+    border-radius: 1000px;
+    cursor: pointer;
 }
