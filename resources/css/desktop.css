@@ -610,10 +610,6 @@ input[type=range]::-moz-range-thumb {
     font-size: 16px;
 }
 
-.tempo{
-    border-right:#333 solid 1px;
-}
-
 .line-tempo hr{
     background-color: #9F9F9F;
     color: #9F9F9F;
@@ -641,6 +637,12 @@ input[type=range]::-moz-range-thumb {
 .text-right h3 {
     font-family: "gilroy-bold", sans-serif;
     font-size: 24px;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
 }
 
 .info h4{
@@ -716,16 +718,18 @@ input[type=range]::-moz-range-thumb {
 
 .cases-imgs {
     display: grid;
-    display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 10px;
-    width: 1046px;
+    gap: 40px;
+    justify-content: center;
     padding: 0px 20px;
 }
 
 .cases-imgs img{
     width: 350px;
+    object-fit: cover;
     height: 350px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
 }
 
 /* Página Administrativa */

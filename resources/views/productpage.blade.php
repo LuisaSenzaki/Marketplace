@@ -26,7 +26,8 @@
                 <h2>{{ $product->name }}</h2>
 
                 <div class="tempo-container">
-                    <p class="tempo">{{ $product->tempo_desenvolvimento }}</p>
+                    <p class="tempo">{{ $product->tempo_desenvolvimento }} dias</p>
+                    <p>|</p>
                     <p class="tempo-termo">Tempo de Desenvolvimento</p>
                 </div>
 
@@ -43,12 +44,12 @@
 
                 <div class="info">
                     <h4>Tempo de Instalação:</h4>
-                    <p>{{ $product->tempo_montagem }}</p>
+                    <p>{{ $product->tempo_montagem }} dias</p>
                 </div>
 
                 <div class="info">
                     <h4>Tempo de Desenvolvimento:</h4>
-                    <p>{{ $product->tempo_desenvolvimento }}</p>
+                    <p>{{ $product->tempo_desenvolvimento }} dias</p>
                 </div>
 
                 <div class="info">
@@ -58,7 +59,7 @@
 
                 <div class="info">
                     <h4>Dimensões:</h4>
-                    <p>{{ $product->dimensoes }}</p>
+                    <p>{{ $product->dimensoes }} m</p>
                 </div>
 
                 <div class='btn-calculadora'>
@@ -82,10 +83,8 @@
             </div>
         </section>
 
-        <section class='icons-container'></section>
-
         <section class="video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ $product->video_id }}" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/{{ $product->video_id }}" frameborder="0" allowfullscreen></iframe>
         </section>
 
         <div class="divider">
@@ -95,14 +94,14 @@
         <section class="cases-especificos">
             <h2>Nossos Cases</h2>
             <div class="cases-imgs">
-                <img src="{{ asset('storage/'.$product->case_image1) }}" alt="Caso de Sucesso">
-                <img src="{{ asset('storage/'.$product->case_image2) }}" alt="Caso de Sucesso">
-                <img src="{{ asset('storage/'.$product->case_image3) }}" alt="Caso de Sucesso">
-                <img src="{{ asset('storage/'.$product->case_image4) }}" alt="Caso de Sucesso">
-                <img src="{{ asset('storage/'.$product->case_image5) }}" alt="Caso de Sucesso">
-                <img src="{{ asset('storage/'.$product->case_image6) }}" alt="Caso de Sucesso">
-                <img src="{{ asset('storage/'.$product->case_image7) }}" alt="Caso de Sucesso">
-                <img src="{{ asset('storage/'.$product->case_image8) }}" alt="Caso de Sucesso">
+                <img src="{{ asset('storage/'.$product->imagem1) }}" alt="Caso de Sucesso">
+                <img src="{{ asset('storage/'.$product->imagem2) }}" alt="Caso de Sucesso">
+                <img src="{{ asset('storage/'.$product->imagem3) }}" alt="Caso de Sucesso">
+                <img src="{{ asset('storage/'.$product->imagem4) }}" alt="Caso de Sucesso">
+                <img src="{{ asset('storage/'.$product->imagem5) }}" alt="Caso de Sucesso">
+                <img src="{{ asset('storage/'.$product->imagem6) }}" alt="Caso de Sucesso">
+                <img src="{{ asset('storage/'.$product->imagem7) }}" alt="Caso de Sucesso">
+                <img src="{{ asset('storage/'.$product->imagem8) }}" alt="Caso de Sucesso">
             </div>
         </section>
     </div>
