@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Models\Product;
 
-class ProductController
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -84,6 +85,8 @@ class ProductController
         'publico_sugerido' => 'nullable|string',
         'tecnologias_utilizadas' => 'nullable|string',
         'description' => 'nullable|string',
+        // 'imagens.*' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
+        // 'imagens' => 'nullable|array|max:8',
     ]);
 
     // Salvar imagem principal
@@ -92,11 +95,14 @@ class ProductController
     }
 
     // Salvar imagens adicionais
-    for ($i = 1; $i <= 8; $i++) {
-        $field = 'imagem' . $i;
-        if ($request->hasFile($field)) {
-            $data[$field] = $request->file($field)->store('produtos', 'public');
-        }
+    if ($request->hasFile('imagens')) {
+    $imagens = $request->file('imagens');
+    foreach ($imagens as $index => $imagem) {
+        if ($index >= 8) break; // Garante no máximo 8
+
+        $path = $imagem->store('produtos', 'public');
+        $data['imagem' . ($index + 1)] = $path;
+    }
     }
 
     Product::create($data);
@@ -138,6 +144,8 @@ class ProductController
         'publico_sugerido' => 'nullable|string',
         'tecnologias_utilizadas' => 'nullable|string',
         'description' => 'nullable|string',
+        // 'imagens.*' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
+        // 'imagens' => 'nullable|array|max:8',
     ]);
 
     // Atualiza imagens se forem enviadas novas
@@ -145,12 +153,15 @@ class ProductController
         $data['image'] = $request->file('image')->store('produtos', 'public');
     }
 
-    for ($i = 1; $i <= 8; $i++) {
-        $field = 'imagem' . $i;
-        if ($request->hasFile($field)) {
-            $data[$field] = $request->file($field)->store('produtos', 'public');
-        }
+    if ($request->hasFile('imagens')) {
+    $imagens = $request->file('imagens');
+    foreach ($imagens as $index => $imagem) {
+        if ($index >= 8) break; // Garante no máximo 8
+
+        $path = $imagem->store('produtos', 'public');
+        $data['imagem' . ($index + 1)] = $path;
     }
+}
 
     $product->update($data);
 

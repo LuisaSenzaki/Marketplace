@@ -19,6 +19,7 @@ class Product extends Model
     'dimensoes',
     'publico_sugerido',
     'tecnologias_utilizadas',
+    'image',
     'imagem1',
     'imagem2',
     'imagem3',

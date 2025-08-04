@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    @vite(['resources/css/app.css', 'resources/js/app.js','resources/css/header-style.css', 'resources/css/desktop.css'])
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adm</title>
-</head>
-<body>
     @extends('layouts.app')
 
     @section('title', 'Página Admin')
@@ -39,35 +30,115 @@
     </div>
 
     <!-- Formulário de Adicionar Produto -->
-    <div id="formulario-produto" style="display: none; margin-top: 20px;">
-        <h2>Adicionar Produto</h2>
-        <form action="{{ route('admin.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
+    <div id="formulario-produto" style="display: none;">
+        <div class="formulario-container-add">
+            <h2>Adicionar Produto</h2>
+            <form class="forms-add" action="{{ route('admin.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="infos-principais-add">
+                    <div id="img-add">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#333" class="bi bi-upload" viewBox="0 0 16 16">
+                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                            <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z"/>
+                        </svg>
+                        <p>Adicione a Imagem Principal</p>
+                        <input type="file" name="image" style="display: none">
+                    </div>
+                    <div class="first-container-add">
+                        <div class="texto-info-edit">
+                            <div class="title-texto-completo-edit">
+                                <p>Título</p>
+                            </div>  
+                            <input type="text" name="name" placeholder="Adicione um Título para a Ativação..." required>
+                        </div>
+                        <div class="texto-info-edit">
+                            <div class="title-texto-completo-edit">
+                                <p>Modalidade</p>
+                            </div>
+                            <input type="text" name="modalidade" placeholder="Adicione uma Modalidade...">
+                        </div>
+                        <div class="texto-info-edit">
+                            <div class="title-texto-completo-edit">
+                                <p>Valor Aproximado</p>
+                            </div>
+                            <input type="text" name="price" placeholder="Adicione um valor aproximado...">
+                        </div>
+                    </div>
+                </div>
 
-            <label>Imagem Principal:</label>
-            <input type="file" name="image">
+                <div class="container-infos-complementares-add">
+                    <div class="infos-complementares">
+                        <h3>Informações Importantes:</h3>
+                        <div class="infos-complementares-edit">
+                            <div class="spam-area">
+                                <p>Sistema Operacional</p>
+                            </div>
+                            <input type="text" name="sistema_operacional" placeholder="Adicione se o sistema operacional é próprio ou de terceiros...">
+                        </div>
+                        <div class="infos-complementares-edit">
+                            <div class="spam-area">
+                                <p>Tempo Montagem</p>
+                            </div>
+                            <input type="text" name="tempo_montagem" placeholder="Adicione o tempo de montagem em DIAS...">
+                        </div>
+                        <div class="infos-complementares-edit">
+                            <div class="spam-area">
+                                <p>Tempo Desenvolvimento</p>
+                            </div>
+                            <input type="text" name="tempo_desenvolvimento" placeholder="Adicione o tempo de desenvolvimento em DIAS...">
+                        </div>
+                        <div class="infos-complementares-edit">
+                            <div class="spam-area">
+                                <p>Capacidade Máxima</p>
+                            </div>
+                            <input type="text" name="capacidade_maxima" placeholder="Adicione a capacidade máxima de brindes/usuários...">
+                        </div>
+                        <div class="infos-complementares-edit">
+                            <div class="spam-area">
+                                <p>Dimensão</p>
+                            </div>
+                            <input type="text" name="dimensoes" placeholder="Adicione as dimensões...">
+                        </div>
+                        <div class="infos-complementares-edit">
+                            <div class="spam-area">
+                                <p>Público Sugerido</p>
+                            </div>
+                            <input type="text" name="publico_sugerido" placeholder="Adicione o público-sugerido...">
+                        </div>
+                        <div class="infos-complementares-edit">
+                            <div class="spam-area">
+                                <p>Tecnologias Utilizadas</p>
+                            </div>
+                            <input type="text" name="tecnologias_utilizadas" placeholder="Adicione as tecnologias utilizadas...">
+                        </div>
+                     </div>
+                
+                    <div class="descricao-edit">
+                        <div class="descricao-edit-title">
+                            <h3>Descrição da Ativação:</h3>
+                        </div>
+                        <textarea name="description" id="description" placeholder="Adicione a descrição da Ativação..."></textarea>
+                    </div>
+                </div>
 
-            <input type="text" name="name" placeholder="Nome" required>
-            <input type="text" name="categoria" placeholder="Categoria">
-            <input type="text" name="sistema_operacional" placeholder="Sistema Operacional">
-            <input type="text" name="modalidade" placeholder="Modalidade">
-            <input type="text" name="price" placeholder="Preço">
-            <input type="text" name="tempo_montagem" placeholder="Tempo de Montagem">
+                <div class="img-cases-add"> 
+                    <label>Espaço de Cases</label>
+                    <div id="drop-zone" style="border: 1px solid #888; background: #eee; text-align: center; padding: 40px; cursor: pointer; border-radius:8px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#333" class="bi bi-upload" viewBox="0 0 16 16">
+                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                            <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z"/>
+                        </svg>
+                        <p>Adicione até 8 Arquivos</p>
+                        <input type="file" name="imagens[]" id="imagens" accept="image/*" multiple style="display: none;" onchange="validateFiles(this)">
+                    </div>
+                </div>
 
-            <input type="text" name="tempo_desenvolvimento" placeholder="Tempo de Desenvolvimento">
-            <input type="text" name="capacidade_maxima" placeholder="Capacidade Máxima">
-            <input type="text" name="dimensoes" placeholder="Dimensões">
-            <input type="text" name="publico_sugerido" placeholder="Público Sugerido">
-            <input type="text" name="tecnologias_utilizadas" placeholder="Tecnologias Utilizadas">
-
-
-            @for ($i = 1; $i <= 8; $i++)
-                <label>Imagem {{ $i }}:</label>
-                <input type="file" name="imagem{{ $i }}">
-            @endfor
-
-            <button type="submit">Salvar Produto</button>
-        </form>
+                <div class="btn-edit">
+                    <button class="btn-edit-cancelar" type="button" onclick="history.back()">Cancelar</button>
+                    <button class="btn-edit-salvar" type="submit">Salvar Produto</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <!-- Lista de produtos já cadastrados -->
@@ -135,6 +206,28 @@
         });
     });
 </script>
+<script>
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('imagens');
+
+    dropZone.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    function validateFiles(input) {
+        if (input.files.length > 8) {
+            alert('Você só pode enviar até 8 arquivos.');
+            input.value = "";
+        }
+    }
+</script>
+
+<script>
+    const ImagePrincipal = document.getElementById('img-add')
+
+    ImagePrincipal.addEventListener('click', () => {
+        fileInput.click();
+    })
+</script>
+
     @endsection
-</body>
-</html>

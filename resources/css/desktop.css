@@ -1025,3 +1025,88 @@ input[type=range]::-moz-range-thumb {
     border-radius: 1000px;
     cursor: pointer;
 }
+
+#formulario-produto h2{
+    color: #D0147A;
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 24px;
+}
+
+#img-add {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 402px;
+    height: 402px;
+    border-radius: 10px;
+    background: linear-gradient(0deg, #FFF 0%, #FFF 100%), #FFF;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#img-add p{
+    font-family: "gilroy-light", sans-serif;
+}
+
+.infos-principais-add{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.first-container-add{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.formulario-container-add{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.forms-add {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.container-infos-complementares-add{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+#drop-zone {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+#drop-zone svg{
+    width: 100px;
+    height: 100px;
+}
+
+#drop-zone p {
+    font-family: "gilroy-light", sans-serif;
+    color: #333;
+}
+
+.img-cases-add label {
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 20px;
+}
+
+.img-cases-add {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
