@@ -22,9 +22,10 @@
         </div>
 
         <div class="options-especifica">
-            <button>Produtos</button>
-            <button>Hub TV1</button>
+            <button id="btn-produtos" style="cursor: pointer;">Produtos</button>
+            <button id="btn-hub" style="cursor: pointer;">Hub TV1</button>
         </div>
+
 
         <div class="hr-options"><hr></div>
     </div>
@@ -161,7 +162,6 @@
                         </div>
                     </div>
                     <div class="btn-edicao">
-                    <!-- Botão de edição -->
                         <a href="{{ route('admin.edit', $product) }}" title="Editar produto" style="margin-right: 8px;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                                 class="bi bi-pencil" viewBox="0 0 16 16">
@@ -183,6 +183,44 @@
                     </div>
 
                     
+                </li>
+                <div class="hr-produto"><hr></div>
+            @endforeach
+        </ul>
+    </div>
+
+    <div id="lista-hub" style="display: none;">
+        <ul class="produtos-totais">
+            @foreach($hubProducts as $hub)
+                <li class="produto-infos">
+                    <div class="left-side-infos">
+                        <img class="perfil-img" src="{{ asset('storage/'.$hub->image) }}" alt="{{ $hub->name }}">
+                        <div class="produto-texto">
+                            <p>{{ $hub->name }}</p>
+                            <p>{{ $hub->modalidade }}</p>
+                            <p class="price-infos">R$ {{ number_format($hub->price, 2, ',', '.') }}</p>
+                        </div>
+                    </div>
+                    <div class="btn-edicao">
+                        <a href="{{ route('hub-admin.edit', $hub) }}" title="Editar produto" style="margin-right: 8px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                class="bi bi-pencil" viewBox="0 0 16 16">
+                                <path d="M12.146.854a.5.5 0 0 1 .708 0l2.292 2.292a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2L2 11.207V13h1.793L14 3.793 11.207 2z"/>
+                            </svg>
+                        </a>
+
+                        <form action="{{ route('hub-admin.destroy', $hub) }}" method="POST" class="form-excluir" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" title="Excluir produto">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                    class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
                 </li>
                 <div class="hr-produto"><hr></div>
             @endforeach
@@ -256,6 +294,27 @@
                 }
             };
         });
+    </script>
+
+    <!-- Script para alternar entre a lista-produtos e lista-hub -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const btnProdutos = document.getElementById('btn-produtos');
+        const btnHub = document.getElementById('btn-hub');
+
+        const listaProdutos = document.getElementById('lista-produtos');
+        const listaHub = document.getElementById('lista-hub');
+
+        btnProdutos.addEventListener('click', function () {
+            listaProdutos.style.display = 'block';
+            listaHub.style.display = 'none';
+        });
+
+        btnHub.addEventListener('click', function () {
+            listaProdutos.style.display = 'none';
+            listaHub.style.display = 'block';
+        });
+    });
     </script>
 
     @endsection

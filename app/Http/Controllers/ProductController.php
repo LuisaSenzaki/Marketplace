@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\HubProduct;
 
 class ProductController extends Controller
 {
@@ -180,6 +181,8 @@ class ProductController extends Controller
     public function admin()
     {
         $products = Product::all();
-        return view('admin', compact('products'));
+        $hubProducts = HubProduct::all();
+
+    return view('admin', compact('products', 'hubProducts'));
     }
 }
