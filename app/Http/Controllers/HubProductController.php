@@ -22,7 +22,7 @@ class HubProductController extends Controller
     {
         $data = $request->validate([
             'name' => 'required|string',
-            'modalidade' => 'nullable|string',
+            'description' => 'nullable|string',
             'price' => 'nullable|string',
             'image' => 'nullable|image|max:2048'
         ]);
@@ -45,7 +45,7 @@ class HubProductController extends Controller
     {
         $data = $request->validate([
             'name' => 'required|string',
-            'modalidade' => 'nullable|string',
+            'description' => 'nullable|string',
             'price' => 'nullable|string',
             'image' => 'nullable|image|max:2048'
         ]);

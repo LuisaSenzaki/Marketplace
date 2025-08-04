@@ -43,7 +43,7 @@
                             <input type="text" name="name" placeholder="Título do Hub" required>
                         </div>
                         <div class="texto-info-edit">
-                            <p>Modalidade</p>
+                            <p>Descrição da Ativação</p>
                             <input type="text" name="description">
                         </div>
                     </div>
