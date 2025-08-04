@@ -1051,6 +1051,14 @@ input[type=range]::-moz-range-thumb {
     font-family: "gilroy-light", sans-serif;
 }
 
+#upload-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
 .infos-principais-add{
     display: flex;
     flex-direction: row;

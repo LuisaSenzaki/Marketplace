@@ -36,13 +36,19 @@
             <form class="forms-add" action="{{ route('admin.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="infos-principais-add">
-                    <div id="img-add">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#333" class="bi bi-upload" viewBox="0 0 16 16">
-                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
-                            <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z"/>
-                        </svg>
-                        <p>Adicione a Imagem Principal</p>
-                        <input type="file" name="image" style="display: none">
+                    <div id="img-add" style="cursor: pointer; text-align: center;">
+                    <!-- Conteúdo que some -->
+                        <div id="upload-content" >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#333" class="bi bi-upload" viewBox="0 0 16 16">
+                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z"/>
+                            </svg>
+                            <p>Adicione a Imagem Principal</p>
+                        </div>
+
+                        <!-- Input e preview -->
+                        <input type="file" name="image" id="input-image" accept="image/*" style="display: none;">
+                        <img id="preview-image" src="" alt="Preview da imagem" style="width: 100%; height: 350px; display: none; border-radius: 8px; margin-top: 10px; text-align: center;">
                     </div>
                     <div class="first-container-add">
                         <div class="texto-info-edit">
@@ -193,8 +199,8 @@
         }
     </script>
 
+    <!-- Script de Alerta de Exclusão de produtos -->
     <script>
-    // Seleciona todos os formulários de exclusão
     const forms = document.querySelectorAll('.form-excluir');
 
     forms.forEach(form => {
@@ -205,29 +211,51 @@
             }
         });
     });
-</script>
-<script>
-    const dropZone = document.getElementById('drop-zone');
-    const fileInput = document.getElementById('imagens');
+    </script>
 
-    dropZone.addEventListener('click', () => {
-        fileInput.click();
-    });
+    <!-- Script para Imagens de Cases -->
+    <script>
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('imagens');
 
-    function validateFiles(input) {
-        if (input.files.length > 8) {
-            alert('Você só pode enviar até 8 arquivos.');
-            input.value = "";
+        dropZone.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        function validateFiles(input) {
+            if (input.files.length > 8) {
+                alert('Você só pode enviar até 8 arquivos.');
+                input.value = "";
+            }
         }
-    }
-</script>
+    </script>
 
-<script>
-    const ImagePrincipal = document.getElementById('img-add')
+    <!-- Script para alternar entre imagens na Imagem Principal -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const imgAdd = document.getElementById('img-add');
+            const inputImage = document.getElementById('input-image');
+            const previewImage = document.getElementById('preview-image');
+            const uploadContent = document.getElementById('upload-content');
 
-    ImagePrincipal.addEventListener('click', () => {
-        fileInput.click();
-    })
-</script>
+            imgAdd.onclick = function () {
+                inputImage.click();
+            };
+
+            inputImage.onchange = function () {
+                const file = this.files[0];
+
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        previewImage.src = e.target.result;
+                        previewImage.style.display = 'block';
+                        uploadContent.style.display = 'none';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+        });
+    </script>
 
     @endsection
