@@ -1118,3 +1118,40 @@ input[type=range]::-moz-range-thumb {
     flex-direction: column;
     gap: 30px;
 }
+
+.hub-product-page {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 70px;
+    margin-bottom: 200px;
+    width: 1396px;
+}
+
+.hub-product-page h2 {
+    color: #D0147A;
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 24px;
+}
+
+.hub-product-page img {
+    width: 100%;
+    height: 406px;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.text-hub-product{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.text-hub-product h3 {
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 20px;
+}
+
+.text-hub-product p{
+    font-family: "gilroy-light", sans-serif;
+    font-size: 18px;
+}

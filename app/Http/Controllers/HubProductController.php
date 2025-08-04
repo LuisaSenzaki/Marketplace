@@ -74,4 +74,10 @@ class HubProductController extends Controller
     return view('hubtv1', compact('hubProducts'));
     }
 
+    public function show($id)
+    {
+    $hub = HubProduct::findOrFail($id); // Busca o produto pelo ID ou retorna 404
+    return view('producthub-page', compact('hub'));
+    }
+
 }

@@ -23,6 +23,7 @@ Route::get('/calc', function () {
 
 Route::get('/search', [ProductController::class, 'search']) ->name('search');
 Route::get('/produto/{id}', [ProductController::class, 'show'])->name('produto.show');
+Route::get('/produtohub/{id}', [HubProductController::class, 'show'])->name('produto-hub.show');
 Route::get('/hubtv1', [HubProductController::class, 'hubtv1'])->name('hubtv1');
 Route::get('/cases', [CasesImagesController::class, 'cases'])->name('cases');
 
