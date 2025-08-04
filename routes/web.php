@@ -17,6 +17,10 @@ Route::get('/adm', function () {
     return view('admin');
 })->name('admin');
 
+Route::get('/calc', function () {
+    return view('calc');
+})->name('calc');
+
 Route::get('/search', [ProductController::class, 'search']) ->name('search');
 Route::get('/produto/{id}', [ProductController::class, 'show'])->name('produto.show');
 Route::get('/hubtv1', [HubProductController::class, 'hubtv1'])->name('hubtv1');
