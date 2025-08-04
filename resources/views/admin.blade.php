@@ -26,18 +26,46 @@
             <button id="btn-hub" style="cursor: pointer;">Hub TV1</button>
         </div>
 
-
         <div class="hr-options"><hr></div>
+    </div>
+
+    <!-- Formulário de Adicionar Produto Hub -->
+    <div id="formulario-hub" style="display: none;">
+        <div class="formulario-container-add">
+            <h2>Adicionar Produto Hub</h2>
+            <form class="forms-add" id="form-hub" action="{{ route('hub-admin.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+                <div class="infos-principais-add">
+                    <input type="file" name="image" class="img-add">
+                    <div class="first-container-add">
+                        <div class="texto-info-edit">
+                            <p>Título</p>
+                            <input type="text" name="name" placeholder="Título do Hub" required>
+                        </div>
+                        <div class="texto-info-edit">
+                            <p>Modalidade</p>
+                            <input type="text" name="description">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-edit">
+                    <button class="btn-edit-cancelar" type="button" onclick="voltarLista()">Cancelar</button>
+                    <button class="btn-edit-salvar" type="submit">Salvar Produto Hub</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <!-- Formulário de Adicionar Produto -->
     <div id="formulario-produto" style="display: none;">
         <div class="formulario-container-add">
             <h2>Adicionar Produto</h2>
-            <form class="forms-add" action="{{ route('admin.store') }}" method="POST" enctype="multipart/form-data">
+            <form class="forms-add" id="form-produto" action="{{ route('admin.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="infos-principais-add">
                     <div id="img-add" style="cursor: pointer; text-align: center;">
+
                     <!-- Conteúdo que some -->
                         <div id="upload-content" >
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#333" class="bi bi-upload" viewBox="0 0 16 16">
@@ -141,7 +169,7 @@
                 </div>
 
                 <div class="btn-edit">
-                    <button class="btn-edit-cancelar" type="button" onclick="history.back()">Cancelar</button>
+                    <button class="btn-edit-cancelar" type="button" onclick="voltarLista()">Cancelar</button>
                     <button class="btn-edit-salvar" type="submit">Salvar Produto</button>
                 </div>
             </form>
@@ -189,6 +217,7 @@
         </ul>
     </div>
 
+    <!-- Lista de produtos cadastrados Hub TV1 -->
     <div id="lista-hub" style="display: none;">
         <ul class="produtos-totais">
             @foreach($hubProducts as $hub)
@@ -230,11 +259,25 @@
 
     <!-- Script para alternar visibilidade -->
     <script>
-        function mostrarFormulario() {
-            document.getElementById('formulario-produto').style.display = 'block';
-            document.getElementById('lista-produtos').style.display = 'none';
-            event.target.style.display = 'none';
-        }
+    function mostrarFormulario() {
+    const btn = event.target;
+    const formProduto = document.getElementById('formulario-produto');
+    const formHub = document.getElementById('formulario-hub');
+    const listaProdutos = document.getElementById('lista-produtos');
+    const listaHub = document.getElementById('lista-hub');
+
+    if (abaAtiva === 'produto') {
+        formProduto.style.display = 'block';
+        formHub.style.display = 'none';
+        listaProdutos.style.display = 'none';
+    } else if (abaAtiva === 'hub') {
+        formHub.style.display = 'block';
+        formProduto.style.display = 'none';
+        listaHub.style.display = 'none';
+    }
+
+    btn.style.display = 'none';
+    }
     </script>
 
     <!-- Script de Alerta de Exclusão de produtos -->
@@ -296,25 +339,67 @@
         });
     </script>
 
-    <!-- Script para alternar entre a lista-produtos e lista-hub -->
-    <script>
+    <!-- Função para alternar entre produto e hub; função para alternar formulário de novo produto -->
+     <script>
+        let abaAtiva = 'produto';
+
         document.addEventListener('DOMContentLoaded', function () {
         const btnProdutos = document.getElementById('btn-produtos');
         const btnHub = document.getElementById('btn-hub');
+        const btnNovoProduto = document.querySelector('.add-produto button');
 
         const listaProdutos = document.getElementById('lista-produtos');
         const listaHub = document.getElementById('lista-hub');
 
+        const formProduto = document.getElementById('formulario-produto');
+        const formHub = document.getElementById('formulario-hub');
+
+        // Alternar abas
         btnProdutos.addEventListener('click', function () {
+            abaAtiva = 'produto';
             listaProdutos.style.display = 'block';
             listaHub.style.display = 'none';
+            formProduto.style.display = 'none';
+            formHub.style.display = 'none';
+            btnNovoProduto.style.display = 'inline-flex';
         });
 
         btnHub.addEventListener('click', function () {
+            abaAtiva = 'hub';
             listaProdutos.style.display = 'none';
             listaHub.style.display = 'block';
+            formProduto.style.display = 'none';
+            formHub.style.display = 'none';
+            btnNovoProduto.style.display = 'inline-flex';
         });
-    });
+
+        // Botão "Novo Produto"
+        btnNovoProduto.addEventListener('click', function (event) {
+            if (abaAtiva === 'produto') {
+                formProduto.style.display = 'block';
+                listaProdutos.style.display = 'none';
+            } else {
+                formHub.style.display = 'block';
+                listaHub.style.display = 'none';
+            }
+            event.target.style.display = 'none';
+            });
+        });
+
+        // Voltar para a tela de listagem
+        function voltarLista() {
+            const formProduto = document.getElementById('formulario-produto');
+            const formHub = document.getElementById('formulario-hub');
+            const listaProdutos = document.getElementById('lista-produtos');
+            const listaHub = document.getElementById('lista-hub');
+            const btnNovoProduto = document.querySelector('.add-produto button');
+
+            formProduto.style.display = 'none';
+            formHub.style.display = 'none';
+            listaProdutos.style.display = abaAtiva === 'produto' ? 'block' : 'none';
+            listaHub.style.display = abaAtiva === 'hub' ? 'block' : 'none';
+            btnNovoProduto.style.display = 'inline-flex';
+        }
     </script>
 
     @endsection
