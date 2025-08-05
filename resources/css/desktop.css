@@ -597,6 +597,10 @@ input[type=range]::-moz-range-thumb {
 
 .image-container-left img {
     width: 600px;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 20px;
 }
 
 .tempo-container{
@@ -1136,8 +1140,10 @@ input[type=range]::-moz-range-thumb {
 
 .hub-product-page img {
     width: 100%;
-    height: 406px;
+    height: 430px;
+    object-fit: cover;
     box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
+    display: block;
 }
 
 .text-hub-product{
@@ -1154,4 +1160,165 @@ input[type=range]::-moz-range-thumb {
 .text-hub-product p{
     font-family: "gilroy-light", sans-serif;
     font-size: 18px;
+}
+
+.container.py-5 {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 70px;
+    margin-bottom: 200px;
+    width: 1396px;
+}
+
+.container.py-5 h2 {
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 32px;
+    color: #D0147A;
+    text-align: center;
+}
+
+.container-produtos-calc {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.header-produto-calc{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.container-produtos-calc h3{
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 20px;
+    color: #333;
+    text-align: left;
+}
+
+.produto-calc-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #9F9F9F;
+}
+
+.produto-calc-img-text {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    padding: 20px 0px;
+}
+
+.produto-calc-img-text img{
+    width: 142px;
+    height: 142px;
+    object-fit: cover;
+    display: block;
+    background-color: #FFF;
+    border-radius: 8px;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.produto-calc-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+.produto-calc-text form{
+    flex: 0;
+    font-family: "gilroy-light", sans-serif;
+    font-size: 18px;
+    color: #333;
+}
+
+.produto-calc-text p {
+    font-family: "gilroy-light", sans-serif;
+    font-size: 18px;
+    color: #333;
+}
+
+.produto-calc-item span{
+    font-family: "gilroy-light", sans-serif;
+    font-size: 18px;
+    color: #333;
+}
+
+.calc-valor-total {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+   
+}
+
+.calc-valor-total h5{
+    font-family: "gilroy-bold", sans-serif;
+    font-size: 18px;
+    color: #333;
+    padding: 15px;
+}
+
+.calc-valor span{
+    font-family: "gilroy-light", sans-serif;
+    font-size: 18px;
+    color: #333;
+}
+
+.calc-valor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #9F9F9F;
+}
+
+.btns-calc {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: right;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.btns-calc form{
+    flex: 0;
+}
+
+.btn-contato {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D0147A;
+    color: white;
+    border: none;
+    border-radius: 1000px;
+    padding: 8px 30px;
+    font-family: "gilroy-light", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#btn-limpar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #9F9F9F;
+    color: white;
+    border: none;
+    border-radius: 1000px;
+    padding: 8px 40px;
+    font-family: "gilroy-light", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }

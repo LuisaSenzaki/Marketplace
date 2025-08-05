@@ -63,7 +63,10 @@
                 </div>
 
                 <div class='btn-calculadora'>
-                    <button class="btn-comprar">Adicione na Calculadora</button>
+                    <form action="{{ route('calc.adicionar', $product->id) }}" method="POST">
+                    @csrf
+                        <button type="submit" class="btn-comprar">Adicionar à Calculadora</button>
+                    </form>
                 </div>
             </div>
         </section>

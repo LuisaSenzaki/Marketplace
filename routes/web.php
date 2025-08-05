@@ -17,9 +17,9 @@ Route::get('/adm', function () {
     return view('admin');
 })->name('admin');
 
-Route::get('/calc', function () {
-    return view('calc');
-})->name('calc');
+// Route::get('/calc', function () {
+//     return view('calc');
+// })->name('calc');
 
 Route::get('/search', [ProductController::class, 'search']) ->name('search');
 Route::get('/produto/{id}', [ProductController::class, 'show'])->name('produto.show');
@@ -38,3 +38,11 @@ Route::resource('hub-admin', HubProductController::class)
 
 Route::get('/admin/{product}/edit', [ProductController::class, 'edit'])->name('admin.edit');
 Route::put('/admin/{product}', [ProductController::class, 'update'])->name('admin.update');
+
+use App\Http\Controllers\CalcController;
+
+Route::get('/calc', [CalcController::class, 'calc'])->name('calc');
+Route::delete('/produto/{id}', [CalcController::class, 'remover'])->name('remover.produto');
+
+Route::post('/adicionar-a-calculadora/{id}', [CalcController::class, 'adicionar'])->name('calc.adicionar');
+Route::post('/calculadora/limpar', [CalcController::class, 'limpar'])->name('calc.limpar');
