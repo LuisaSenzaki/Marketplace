@@ -108,7 +108,14 @@
                             <div class="spam-area">
                                 <p>Sistema Operacional</p>
                             </div>
-                            <input type="text" name="sistema_operacional" placeholder="Adicione se o sistema operacional é próprio ou de terceiros...">
+                            <select name="sistema_operacional" class="form-select" style="border: #9F9F9F solid 1px; width: 350px; padding: 0px 10px; font-family: 'gilroy-light', sans-serif; color: #9F9F9F;">
+                                <option value="">Selecione uma opção</option>
+                                <option value="Realidade Virtual">Realidade Virtual</option>
+                                <option value="Games Virtuais">Games Virtuais</option>
+                                <option value="Cabines e Estações">Cabines e Estações</option>
+                                <option value="Experiências Interativas">Experiências Interativas</option>
+                                <option value="ChatBots e Assistentes">ChatBots e Assistentes</option>
+                            </select>
                         </div>
                         <div class="infos-complementares-edit">
                             <div class="spam-area">
@@ -145,6 +152,19 @@
                                 <p>Tecnologias Utilizadas</p>
                             </div>
                             <input type="text" name="tecnologias_utilizadas" placeholder="Adicione as tecnologias utilizadas...">
+                        </div>
+                        <div class="infos-complementares-edit">
+                            <div class="spam-area">
+                                <p>Categoria Relacionada</p>
+                            </div>
+                            <select name="categoria" class="form-select" style="border: #9F9F9F solid 1px; width: 350px; padding: 0px 10px; font-family: 'gilroy-light', sans-serif; color: #9F9F9F;">
+                                <option value="">Selecione uma Categoria</option>
+                                <option value="Realidade Virtual">Eventos Corporativos</option>
+                                <option value="Games Virtuais">Eventos de Agronegócio</option>
+                                <option value="Cabines e Estações">Eventos de Saúde</option>
+                                <option value="Experiências Interativas">Eventos de Beleza e Cosméticos</option>
+                                <option value="ChatBots e Assistentes">Eventos Alimentícios</option>
+                            </select>
                         </div>
                      </div>
                 

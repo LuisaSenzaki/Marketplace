@@ -43,11 +43,11 @@ class ProductController extends Controller
     }
 
     if ($request->filled('preco_min')) {
-        $query->where('preco', '>=', $request->preco_min);
+        $query->where('price', '>=', $request->preco_min);
     }
 
     if ($request->filled('preco_max')) {
-        $query->where('preco', '<=', $request->preco_max);
+        $query->where('price', '<=', $request->preco_max);
     }
 
     if ($request->filled('tempo_montagem')) {
@@ -76,6 +76,7 @@ class ProductController extends Controller
     {
        $data = $request->validate([
         'name' => 'required|string',
+        'categoria' => 'nullable|string',
         'sistema_operacional' => 'nullable|string',
         'modalidade' => 'nullable|string',
         'price' => 'nullable|string',
@@ -135,6 +136,7 @@ class ProductController extends Controller
     {
         $data = $request->validate([
         'name' => 'required|string',
+        'categoria' => 'nullable|string',
         'sistema_operacional' => 'nullable|string',
         'modalidade' => 'nullable|string',
         'price' => 'nullable|string',

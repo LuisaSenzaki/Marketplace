@@ -597,7 +597,7 @@ input[type=range]::-moz-range-thumb {
 
 .image-container-left img {
     width: 600px;
-    height: 100%;
+    height: 480px;
     display: block;
     object-fit: cover;
     border-radius: 20px;
@@ -672,7 +672,7 @@ input[type=range]::-moz-range-thumb {
     transition: background-color 0.3s ease;
 }
 
-.btn-calculadora {
+.btn-calculadora form {
     display: flex;
     justify-content: center;
 }
@@ -986,7 +986,7 @@ input[type=range]::-moz-range-thumb {
     font-family: "gilroy-light", sans-serif;
     border: #9F9F9F solid 1px;
     width: 100%;
-    height: 330px;
+    height: 100%;
     padding: 10px;
 }
 
