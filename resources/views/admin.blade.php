@@ -86,12 +86,35 @@
                             </div>  
                             <input type="text" name="name" placeholder="Adicione um Título para a Ativação..." required>
                         </div>
-                        <div class="texto-info-edit">
-                            <div class="title-texto-completo-edit">
-                                <p>Modalidade</p>
-                            </div>
-                            <input type="text" name="modalidade" placeholder="Adicione uma Modalidade...">
-                        </div>
+                        <div class="select-wrapper">
+                    <select name="modalidade" class="form-select"
+                    style="font-family: 'gilroy-light', sans-serif;
+                            color: #9F9F9F;
+                            background: #fff;
+                            box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
+                            width: 100%;
+                            height: 50px;
+                            border-radius: 10px;
+                            padding: 10px 40px 10px 10px; /* Espaço extra p/ ícone */
+                            appearance: none;
+                            -webkit-appearance: none;
+                            -moz-appearance: none;">
+                    <option value="">Selecione uma Modalidade de Evento</option>
+                    <option value="Híbrido">Híbrido</option>
+                    <option value="Presencial">Presencial</option>
+                    <option value="Virtual">Virtual</option>
+                    </select>
+
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        width="16" height="16" fill="#9F9F9F"
+                        class="select-icon bi bi-caret-down"
+                        viewBox="0 0 16 16">
+                    <path d="M3.204 5h9.592L8 10.481zm-.753.659 
+                            4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48
+                            c.566-.647.106-1.659-.753-1.659H3.204
+                            a1 1 0 0 0-.753 1.659"/>
+                    </svg>
+                </div>
                         <div class="texto-info-edit">
                             <div class="title-texto-completo-edit">
                                 <p>Valor Aproximado</p>

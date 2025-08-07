@@ -31,10 +31,38 @@
                     <input type="text" name="name" value="{{ $product->name }}" required>
                 </div>
                 <div class="texto-info-edit">
-                    <div class="title-texto-completo-edit">
-                        <p>Modalidade</p>
-                    </div>
-                    <input type="text" name="modalidade" value="{{ $product->modalidade }}">
+                <div class="title-texto-completo-edit">
+                    <p>Modalidade</p>
+                </div>
+                <div class="select-wrapper">
+                    <select name="modalidade" class="form-select"
+                    style="font-family: 'gilroy-light', sans-serif;
+                            color: #9F9F9F;
+                            background: #fff;
+                            box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.05);
+                            width: 100%;
+                            height: 50px;
+                            border-radius: 10px;
+                            padding: 10px 40px 10px 10px; /* Espaço extra p/ ícone */
+                            appearance: none;
+                            -webkit-appearance: none;
+                            -moz-appearance: none;">
+                    <option value="">{{ $product->modalidade }}</option>
+                    <option value="Híbrido">Híbrido</option>
+                    <option value="Presencial">Presencial</option>
+                    <option value="Virtual">Virtual</option>
+                    </select>
+
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        width="16" height="16" fill="#9F9F9F"
+                        class="select-icon bi bi-caret-down"
+                        viewBox="0 0 16 16">
+                    <path d="M3.204 5h9.592L8 10.481zm-.753.659 
+                            4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48
+                            c.566-.647.106-1.659-.753-1.659H3.204
+                            a1 1 0 0 0-.753 1.659"/>
+                    </svg>
+                </div>
                 </div>
                 <div class="texto-info-edit">
                     <div class="title-texto-completo-edit">
@@ -51,9 +79,29 @@
                 <h3>Informações Importantes:</h3>
                 <div class="infos-complementares-edit">
                     <div class="spam-area">
-                        <p>Sistema Operacional</p>
+                        <p>Categoria Relacionada</p>
                     </div>
-                    <input type="text" name="sistema_operacional" value="{{ $product->sistema_operacional }}">
+                    <select name="categoria" class="form-select" style="border: #9F9F9F solid 1px; width: 350px; padding: 0px 10px; font-family: 'gilroy-light', sans-serif; color: #9F9F9F;">
+                        <option value="">Selecione uma Categoria</option>
+                        <option value="Eventos Corporativos">Eventos Corporativos</option>
+                        <option value="Eventos de Agronegócio">Eventos de Agronegócio</option>
+                        <option value="Eventos de Saúde">Eventos de Saúde</option>
+                        <option value="Eventos de Beleza e Cosméticos">Eventos de Beleza e Cosméticos</option>
+                        <option value="Eventos Alimentícios">Eventos Alimentícios</option>
+                    </select>
+                </div>
+                <div class="infos-complementares-edit">
+                    <div class="spam-area">
+                         <p>Sistema Operacional</p>
+                    </div>
+                    <select name="sistema_operacional" class="form-select" style="border: #9F9F9F solid 1px; width: 350px; padding: 0px 10px; font-family: 'gilroy-light', sans-serif; color: #9F9F9F;">
+                        <option value="">Selecione um tipo de Operação</option>
+                        <option value="Realidade Virtual">Realidade Virtual</option>
+                        <option value="Games Virtuais">Games Virtuais</option>
+                        <option value="Cabines e Estações">Cabines e Estações</option>
+                        <option value="Experiências Interativas">Experiências Interativas</option>
+                        <option value="ChatBots e Assistentes">ChatBots e Assistentes</option>
+                    </select>
                 </div>
                 <div class="infos-complementares-edit">
                     <div class="spam-area">
@@ -81,15 +129,26 @@
                 </div>
                 <div class="infos-complementares-edit">
                     <div class="spam-area">
-                        <p>Público Sugerido</p>
+                         <p>Público Sugerido</p>
                     </div>
-                    <input type="text" name="publico_sugerido" value="{{ $product->publico_sugerido }}">
+                    <select name="publico_sugerido"  class="form-select" style="border: #9F9F9F solid 1px; width: 350px; padding: 0px 10px; font-family: 'gilroy-light', sans-serif; color: #9F9F9F;">
+                        <option value="">{{ $product->publico_sugerido }}</option>
+                        <option value="B2C">B2C</option>
+                        <option value="B2B">B2B</option>
+                        <option value="B2C e B2B">B2C e B2B</option>
+                    </select>
                 </div>
                 <div class="infos-complementares-edit">
                     <div class="spam-area">
-                        <p>Tecnologias Utilizadas</p>
+                         <p>Tecnologias Utilizadas</p>
                     </div>
-                    <input type="text" name="tecnologias_utilizadas" value="{{ $product->tecnologias_utilizadas }}">
+                    <select name="tecnologias_utilizadas"  class="form-select" style="border: #9F9F9F solid 1px; width: 350px; padding: 0px 10px; font-family: 'gilroy-light', sans-serif; color: #9F9F9F;">
+                        <option value="">{{ $product->tecnologias_utilizadas }}</option>
+                        <option value="B2C">Software</option>
+                        <option value="B2B">Hardware</option>
+                        <option value="B2B">Sensores</option>
+                        <option value="B2B">Inteligência Artificial</option>
+                    </select>
                 </div>
             </div>
 

@@ -910,6 +910,19 @@ input[type=range]::-moz-range-thumb {
     width: 100%;
 }
 
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.select-wrapper .select-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
 .title-texto-completo-edit p{
     font-family: "gilroy-bold", sans-serif;
     font-size: 24px;
