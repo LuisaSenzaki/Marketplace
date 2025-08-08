@@ -382,6 +382,7 @@ input[type=range]::-moz-range-thumb {
     width: 1046px;
     padding: 20px;
     gap: 20px;
+    
 }
 
 /* Subsessão de produtos  */
@@ -405,6 +406,15 @@ input[type=range]::-moz-range-thumb {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+
+.card-produto:hover{
+    background-color: #ffe9fd;
+}
+
+.card-produto:active{
+    background-color: #f7c1d5;
 }
 
 .card-produto img {
@@ -697,8 +707,19 @@ input[type=range]::-moz-range-thumb {
     font-family: "gilroy-light", sans-serif;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transform: translateY(0);
+    transition: all 0.2s ease-in-out;
 }
+
+.btn-comprar:hover {
+    transform: translateY(6px);
+    background-color: #7c0b49;
+}
+
+.btn-comprar:active {
+    transform: translateY(0);
+}
+
 
 .btn-calculadora form {
     display: flex;
