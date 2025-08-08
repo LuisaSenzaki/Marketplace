@@ -19,21 +19,8 @@
         <section class="left-hub">
             <h2>Cases</h2>
             <div class="cases-products">
-                @foreach($casesImages as $product)
-               
-                    <div class="cases-product">
-                        <h3 class="name-case">{{ $product->name }}</h3>
-                        <div class="title-line">
-                            <hr>
-                        </div>
-                        <div class="container-images-cases">
-                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
-                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
-                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
-                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
-                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
-                        </div>
-                    </div>
+                @foreach ($imagens as $imagem)
+                    <img src="{{ $imagem }}" alt="Imagem do produto">
                 @endforeach
             </div>
         </section>

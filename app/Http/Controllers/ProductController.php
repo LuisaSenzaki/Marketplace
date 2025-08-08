@@ -187,4 +187,5 @@ class ProductController extends Controller
 
     return view('admin', compact('products', 'hubProducts'));
     }
+
 }

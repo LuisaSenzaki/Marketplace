@@ -234,6 +234,19 @@ hr {
     justify-content: center;
 }
 
+.button-container button {
+    transition: all 0.2s ease-in-out;
+    transform: translateY(0);
+}
+
+.button-container button:hover {
+    background-color: #7c0b49;
+}
+
+.button-container button:active {
+    transform: translateY(2px);
+}
+
 .ai-chat iframe {
     border: #D0147A solid 2px;
     border-radius: 10px;
@@ -410,11 +423,11 @@ input[type=range]::-moz-range-thumb {
 }
 
 .card-produto:hover{
-    background-color: #ffe9fd;
+    background-color: #cacaca;
 }
 
 .card-produto:active{
-    background-color: #f7c1d5;
+    background-color: #9F9F9F;
 }
 
 .card-produto img {
@@ -486,6 +499,15 @@ input[type=range]::-moz-range-thumb {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    transition: all 0.2s ease-in-out;
+}
+
+.hub-product:hover {
+    background-color: #cacaca;
+}
+
+.hub-product:active {
+    background-color: #9F9F9F;
 }
 
 .hub-product img {
@@ -1367,7 +1389,16 @@ input[type=range]::-moz-range-thumb {
     font-family: "gilroy-light", sans-serif;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.2s ease-in-out;
+    transform: translateY(0);
+}
+
+.btn-contato:hover {
+    background-color: #7c0b49;
+}
+
+.btn-contato:active {
+    transform: translateY(-2px);
 }
 
 #btn-limpar {
@@ -1382,5 +1413,14 @@ input[type=range]::-moz-range-thumb {
     font-family: "gilroy-light", sans-serif;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.2s ease-in-out;
+    transform: translateY(0);
+}
+
+#btn-limpar:hover {
+    background-color: #333;
+}
+
+#btn-limpar:active {
+    transform: translateY(-2px);
 }
