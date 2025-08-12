@@ -207,11 +207,12 @@
                             <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z"/>
                         </svg>
                         <p>Adicione até 8 Arquivos</p>
-                        <input type="file" name="imagens[]" id="imagens" accept="image/*" multiple style="display: none;" onchange="validateFiles(this)">
+                        <input type="file" name="imagens[]" id="imagens" accept="image/*" multiple style="display: none;">
                     </div>
-                    <div id="files-list" style="margin-top: 15px; font-family: sans-serif; font-size: 14px; color: #333;">
+                    <div id="files-list">
                         Nenhum arquivo selecionado.
                     </div>
+                    
                 </div>
 
                 <div class="btn-edit">
@@ -340,40 +341,65 @@
     });
     </script>
 
-    <!-- Script para Imagens de Cases -->
+    <!-- Script para Imagens de Cases e listagem de arquivos -->
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
         const dropZone = document.getElementById('drop-zone');
         const fileInput = document.getElementById('imagens');
+        const filesListDiv = document.getElementById('files-list');
+
+        let arquivosSelecionados = new DataTransfer();
 
         dropZone.addEventListener('click', () => {
+            fileInput.value = null; // limpa o valor para abrir sempre o seletor
             fileInput.click();
         });
 
-        function validateFiles(input) {
-    const filesListDiv = document.getElementById('files-list');
-    const files = input.files;
+        fileInput.addEventListener('change', function(event) {
+            const novosArquivos = event.target.files;
 
-    if (files.length === 0) {
-        filesListDiv.textContent = 'Nenhum arquivo selecionado.';
-        return;
-    }
+            if ((arquivosSelecionados.files.length + novosArquivos.length) > 8) {
+                alert('Você só pode enviar até 8 arquivos.');
+                return;
+            }
 
-    if (files.length > 8) {
-        alert('Você só pode enviar até 8 arquivos.');
-        input.value = "";
-        filesListDiv.textContent = 'Nenhum arquivo selecionado.';
-        return;
-    }
+            for (let i = 0; i < novosArquivos.length; i++) {
+                arquivosSelecionados.items.add(novosArquivos[i]);
+            }
 
-    let listHtml = `<p>${files.length} arquivo(s) selecionado(s):</p><ul>`;
-    for (let i = 0; i < files.length; i++) {
-        listHtml += `<li>${files[i].name}</li>`;
-    }
-    listHtml += '</ul>';
+            // Atualiza o input com os arquivos acumulados
+            fileInput.files = arquivosSelecionados.files;
 
-    filesListDiv.innerHTML = listHtml;
-}
+            // Atualiza a lista visual
+            atualizarLista(arquivosSelecionados.files);
+        });
 
+        function atualizarLista(files) {
+            if (files.length === 0) {
+                filesListDiv.textContent = 'Nenhum arquivo selecionado.';
+                return;
+            }
+
+            let listHtml = `<p>${files.length} arquivo(s) selecionado(s):</p><ul>`;
+            for (let i = 0; i < files.length; i++) {
+                listHtml += `<li>${files[i].name} <button type="button" onclick="removerArquivo(${i})" style="color:#333; cursor:pointer;">X</button></li><div class="files-list-hr">
+                        <hr>
+                    </div>`;
+            }
+            listHtml += '</ul>';
+            filesListDiv.innerHTML = listHtml;
+        }
+
+        // Função precisa estar global para funcionar no onclick inline
+        window.removerArquivo = function(index) {
+            arquivosSelecionados.items.remove(index);
+            fileInput.files = arquivosSelecionados.files;
+            atualizarLista(arquivosSelecionados.files);
+        };
+
+        // Inicializa a lista (caso haja arquivos)
+        atualizarLista(arquivosSelecionados.files);
+    });
     </script>
 
     <!-- Script para alternar entre imagens na Imagem Principal -->
