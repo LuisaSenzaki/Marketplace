@@ -164,26 +164,28 @@
         <div class="cases-container-edit">
             <h2>Cases</h2>       
             <div class="cases-imagens-edit">
+
                 @for ($i = 1; $i <= 8; $i++)
                     @php
                         $campo = 'imagem' . $i;
-                        $imagemUrl = $product->$campo ? asset('storage/' . $product->$campo) : asset('icons/image-placeholder.svg');
+                        $imagemUrl = $product->$campo ? asset('storage/' . $product->$campo) : null;
                     @endphp
-                    <div class="imagem-box">
-                        <label for="imagem{{ $i }}" style="display: flex; justify-content: center;">
-                            <img id="preview-imagem{{ $i }}"
-                                src="{{ $imagemUrl }}"
-                                alt="Preview Imagem {{ $i }}"
-                                style="width: 200px; height: 200px; object-fit: cover; border: 1px solid #9F9F9F; border-radius: 8px; padding: 10px; cursor: pointer;">
+                    <div class="imagem-box" style="cursor: pointer; width: 200px; height: 200px; border: 1px solid #9F9F9F; border-radius: 8px; padding: 10px; display: flex; justify-content: center; align-items: center;">
+                        <label for="imagem{{ $i }}" style="cursor: pointer; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
+                            @if ($imagemUrl)
+                                <img id="preview-imagem{{ $i }}" src="{{ $imagemUrl }}" alt="Preview Imagem {{ $i }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                            @else
+                                {{-- SVG de upload --}}
+                                <svg id="preview-imagem{{ $i }}" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#333" class="bi bi-upload" viewBox="0 0 16 16">
+                                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                    <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z"/>
+                                </svg>
+                            @endif
                         </label>
-                        <input type="file"
-                            name="imagem{{ $i }}"
-                            id="imagem{{ $i }}"
-                            style="display: none;"
-                            accept="image/*"
-                            onchange="mostrarPreview(this, 'preview-imagem{{ $i }}')">
+                        <input type="file" name="imagem{{ $i }}" id="imagem{{ $i }}" style="display: none;" accept="image/*" onchange="mostrarPreview(this, 'preview-imagem{{ $i }}')">
                     </div>
                 @endfor
+
             </div>
 
             <div class="btn-edit">
@@ -214,6 +216,35 @@
             }
         }
     </script>
+
+    <!-- Função de pré-visualização -->
+    <script>
+        function mostrarPreview(input, previewId) {
+        const file = input.files[0];
+        const preview = document.getElementById(previewId);
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                if (preview.tagName.toLowerCase() === 'img') {
+                    preview.src = e.target.result;
+                } else {
+                    const img = document.createElement('img');
+                    img.id = previewId;
+                    img.src = e.target.result;
+                    img.style.width = '100%';
+                    img.style.height = '100%';
+                    img.style.objectFit = 'cover';
+                    img.style.borderRadius = '8px';
+
+                    preview.parentNode.replaceChild(img, preview);
+                    }
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+
     @endsection
 </body>
 </html>

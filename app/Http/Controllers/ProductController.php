@@ -156,15 +156,13 @@ class ProductController extends Controller
         $data['image'] = $request->file('image')->store('produtos', 'public');
     }
 
-    if ($request->hasFile('imagens')) {
-    $imagens = $request->file('imagens');
-    foreach ($imagens as $index => $imagem) {
-        if ($index >= 8) break; // Garante no máximo 8
-
-        $path = $imagem->store('produtos', 'public');
-        $data['imagem' . ($index + 1)] = $path;
+  // Atualiza imagens extras individualmente
+    for ($i = 1; $i <= 8; $i++) {
+        $field = 'imagem' . $i;
+        if ($request->hasFile($field)) {
+            $data[$field] = $request->file($field)->store('produtos', 'public');
+        }
     }
-}
 
     $product->update($data);
 

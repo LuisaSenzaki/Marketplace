@@ -209,6 +209,9 @@
                         <p>Adicione até 8 Arquivos</p>
                         <input type="file" name="imagens[]" id="imagens" accept="image/*" multiple style="display: none;" onchange="validateFiles(this)">
                     </div>
+                    <div id="files-list" style="margin-top: 15px; font-family: sans-serif; font-size: 14px; color: #333;">
+                        Nenhum arquivo selecionado.
+                    </div>
                 </div>
 
                 <div class="btn-edit">
@@ -240,11 +243,11 @@
                             </svg>
                         </a>
 
-                        <form action="{{ route('admin.destroy', $product) }}" method="POST" class="form-excluir" style="display:inline;">
+                        <form action="{{ route('admin.destroy', $product) }}" method="POST" class="form-excluir" style="display:inline; cursor:pointer;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" title="Excluir produto">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" cursor="pointer"
                                     class="bi bi-trash" viewBox="0 0 16 16">
                                     <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
                                     <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
@@ -347,11 +350,30 @@
         });
 
         function validateFiles(input) {
-            if (input.files.length > 8) {
-                alert('Você só pode enviar até 8 arquivos.');
-                input.value = "";
-            }
-        }
+    const filesListDiv = document.getElementById('files-list');
+    const files = input.files;
+
+    if (files.length === 0) {
+        filesListDiv.textContent = 'Nenhum arquivo selecionado.';
+        return;
+    }
+
+    if (files.length > 8) {
+        alert('Você só pode enviar até 8 arquivos.');
+        input.value = "";
+        filesListDiv.textContent = 'Nenhum arquivo selecionado.';
+        return;
+    }
+
+    let listHtml = `<p>${files.length} arquivo(s) selecionado(s):</p><ul>`;
+    for (let i = 0; i < files.length; i++) {
+        listHtml += `<li>${files[i].name}</li>`;
+    }
+    listHtml += '</ul>';
+
+    filesListDiv.innerHTML = listHtml;
+}
+
     </script>
 
     <!-- Script para alternar entre imagens na Imagem Principal -->

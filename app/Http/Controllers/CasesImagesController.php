@@ -12,7 +12,7 @@ class CasesImagesController extends Controller
 {
      public function cases()
     {
-    $imagens = Product::pluck('imagens2');
+    $imagens = Product::pluck('imagem2');
     return view('cases', compact('imagens'));
     }
 }

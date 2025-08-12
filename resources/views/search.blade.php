@@ -103,6 +103,8 @@
             </form>
         </section>
 
+        <div style="border-left: 0.5px solid #ccc; height: 100%; margin: 0 20px;"></div>
+
         <!-- Produtos -->
          <div class="product-side">
          @if($products->isEmpty())

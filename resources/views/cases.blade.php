@@ -14,15 +14,16 @@
 
     @section('content')
     <div class="container-hub">
-
         <!-- Área de Produtos -->
         <section class="left-hub">
             <h2>Cases</h2>
+            
             <div class="cases-products">
                 @foreach ($imagens as $imagem)
-                    <img src="{{ $imagem }}" alt="Imagem do produto">
+                   <img src="{{ asset('storage/' . $imagem) }}" alt="Imagem do produto">
                 @endforeach
             </div>
+            
         </section>
     </div>
     @endsection

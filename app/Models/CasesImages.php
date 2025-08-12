@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class CasesImages extends Model
 {
-    protected $fillable = ['name', 'image2'];
+    protected $fillable = ['name', 'imagem2'];
 }
