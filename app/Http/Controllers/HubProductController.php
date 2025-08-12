@@ -23,7 +23,6 @@ class HubProductController extends Controller
         $data = $request->validate([
             'name' => 'required|string',
             'description' => 'nullable|string',
-            'price' => 'nullable|string',
             'image' => 'nullable|image|max:2048'
         ]);
 
@@ -43,22 +42,25 @@ class HubProductController extends Controller
 
     public function update(Request $request, HubProduct $hubProduct)
     {
-        $data = $request->validate([
-            'name' => 'required|string',
-            'description' => 'nullable|string',
-            'price' => 'nullable|string',
-            'image' => 'nullable|image|max:2048'
-        ]);
+    $data = $request->validate([
+        'name' => 'required|string',
+        'description' => 'nullable|string',
+        'image' => 'nullable|image|max:2048'
+    ]);
 
-        if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('hub', 'public');
+    if ($request->hasFile('image')) {
+        if ($hubProduct->image && \Storage::disk('public')->exists($hubProduct->image)) {
+            \Storage::disk('public')->delete($hubProduct->image);
         }
-
-        $hubProduct->update($data);
-
-        return redirect()->route('admin', ['filtro' => 'hub'])->with('success', 'Produto Hub Adicionado com sucesso!');
-
+        $data['image'] = $request->file('image')->store('hub', 'public');
+    } else {
+        unset($data['image']);
     }
+
+    $hubProduct->update($data);
+
+    return redirect()->route('admin', ['filtro' => 'hub'])->with('success', 'Produto Hub atualizado com sucesso!');
+}
 
     public function destroy(HubProduct $hubProduct)
     {
