@@ -182,11 +182,11 @@
                             </div>
                             <select name="categoria" class="form-select" style="border: #9F9F9F solid 1px; width: 350px; padding: 0px 10px; font-family: 'gilroy-light', sans-serif; color: #9F9F9F;">
                                 <option value="">Selecione uma Categoria</option>
-                                <option value="Realidade Virtual">Eventos Corporativos</option>
-                                <option value="Games Virtuais">Eventos de Agronegócio</option>
-                                <option value="Cabines e Estações">Eventos de Saúde</option>
-                                <option value="Experiências Interativas">Eventos de Beleza e Cosméticos</option>
-                                <option value="ChatBots e Assistentes">Eventos Alimentícios</option>
+                                <option value="Eventos Corporativos">Eventos Corporativos</option>
+                                <option value="Eventos de Agronegócio">Eventos de Agronegócio</option>
+                                <option value="Eventos de Saúde">Eventos de Saúde</option>
+                                <option value="Eventos de Beleza e Cosméticos">Eventos de Beleza e Cosméticos</option>
+                                <option value="Eventos Alimentícios">Eventos Alimentícios</option>
                             </select>
                         </div>
                      </div>
