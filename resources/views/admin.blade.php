@@ -32,19 +32,29 @@
     <!-- Formulário de Adicionar Produto Hub -->
     <div id="formulario-hub" style="display: none;">
         <div class="formulario-container-add">
-            <h2>Adicionar Produto Hub</h2>
+            <h2 style="font-family: 'gilroy-bold'; font-size: 24px; color: #D0147A">Adicionar Produto Hub</h2>
             <form class="forms-add" id="form-hub" action="{{ route('hub-admin.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
                 <div class="infos-principais-add">
-                    <input type="file" name="image" class="img-add">
+                    <div id="img-add" style="cursor: pointer; text-align: center;">
+                        <div id="upload-content" >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#333" class="bi bi-upload" viewBox="0 0 16 16">
+                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z"/>
+                            </svg>
+                            <p style="font-family: 'gilroy-bold';">Adicione a Imagem Principal</p>
+                        </div>
+                    <input type="file" name="image" class="img-add" id="input-image" accept="image/*" style="display: none;">
+                    <img id="preview-image" src="" alt="Preview da imagem" style="width: 100%; height: 350px; display: none; border-radius: 8px; margin-top: 10px; text-align: center;">
+                    </div>          
                     <div class="first-container-add">
                         <div class="texto-info-edit">
-                            <p>Título</p>
-                            <input type="text" name="name" placeholder="Título do Hub" required>
+                            <p style="font-family: 'gilroy-bold';">Título</p>
+                            <input type="text" name="name" placeholder="Título do Hub" style="font-family: 'gilroy-light';"required>
                         </div>
                         <div class="texto-info-edit">
-                            <p>Descrição da Ativação</p>
-                            <input type="text" name="description">
+                            <p style="font-family: 'gilroy-bold';">Descrição da Ativação</p>
+                            <textarea name="description" class="description-hub-edit" id="description" placeholder="Adicione a descrição da Tecnologia..." style="color: #9F9F9F; background: #fff; box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.05); border-radius: 10px; min-height: 230px; padding: 10px; font-family: 'gilroy-light';"></textarea>
                         </div>
                     </div>
                 </div>
@@ -299,7 +309,7 @@
                         <form action="{{ route('hub-admin.destroy', $hub) }}" method="POST" class="form-excluir" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" title="Excluir produto">
+                            <button type="submit" title="Excluir produto" style="cursor: pointer;">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                                     class="bi bi-trash" viewBox="0 0 16 16">
                                     <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
