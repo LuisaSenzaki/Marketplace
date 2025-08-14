@@ -44,5 +44,15 @@ use App\Http\Controllers\CalcController;
 Route::get('/calc', [CalcController::class, 'calc'])->name('calc');
 Route::delete('/produto/{id}', [CalcController::class, 'remover'])->name('remover.produto');
 
-Route::post('/adicionar-a-calculadora/{id}', [CalcController::class, 'adicionar'])->name('calc.adicionar');
+
+Route::post('/adicionar-a-calculadora/{id}', [CalcController::class, 'adicionar'])
+    ->name('calc.adicionar');
+
+// GET → apenas redireciona de volta (ou para a calc)
+Route::get('/adicionar-a-calculadora/{id}', function () {
+    return redirect()->back();
+});
 Route::post('/calculadora/limpar', [CalcController::class, 'limpar'])->name('calc.limpar');
+
+Route::get('/calc/count', [CalcController::class, 'count'])->name('calc.count');
+

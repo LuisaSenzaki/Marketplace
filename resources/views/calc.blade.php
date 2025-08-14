@@ -38,7 +38,7 @@
                <div class="calc-valor-total">
                     <h5>Total</h5>
                     <div class="calc-valor">
-                         <span>{{ $produtos->count() }}x {{ $produtos->first()->nome ?? '' }}</span>
+                         <span>{{ $produtos->count() }} Ativação(s) Escolhida(s)</span>
                          <span>A partir de R$ {{ number_format($total, 2, ',', '.') }}</span>
                     </div>
                </div>
@@ -67,7 +67,7 @@
      <script>
      document.querySelectorAll('.btn-trash').forEach(button => {
      button.addEventListener('click', function(event) {
-          event.preventDefault(); // Impede envio imediato
+          event.preventDefault();
           if (confirm('Tem certeza que deseja remover este produto?')) {
                this.closest('form').submit();
           }

@@ -1155,7 +1155,7 @@ input[type=range]::-moz-range-thumb {
     font-size: 24px;
 }
 
-#img-add {
+.image-uploader {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -1174,7 +1174,7 @@ input[type=range]::-moz-range-thumb {
     font-family: "gilroy-light", sans-serif;
 }
 
-#upload-content{
+.upload-content{
     display: flex;
     flex-direction: column;
     justify-content: center;
