@@ -22,7 +22,7 @@
         @method('PUT')
         <div class="first-container-edit">
             <img src="{{ asset('storage/'.$product->image) }}" alt="Imagem atual" id="img-preview">
-            <input type="file" name="image" id="image-input" style="display: none;">
+            <input type="file" name="image" id="image-input" style="display: none;" onchange="mostrarPreview(this, 'img-preview')">
             <div class="texto-completo-edit">
                 <div class="texto-info-edit">
                     <div class="title-texto-completo-edit">
@@ -82,7 +82,7 @@
                         <p>Categoria Relacionada</p>
                     </div>
                     <select name="categoria" class="form-select" style="border: #9F9F9F solid 1px; width: 350px; padding: 0px 10px; font-family: 'gilroy-light', sans-serif; color: #9F9F9F;">
-                        <option value="">Selecione uma Categoria</option>
+                        <option value="">{{ $product->categoria }}</option>
                         <option value="Eventos Corporativos">Eventos Corporativos</option>
                         <option value="Eventos de Agronegócio">Eventos de Agronegócio</option>
                         <option value="Eventos de Saúde">Eventos de Saúde</option>
@@ -95,7 +95,7 @@
                          <p>Sistema Operacional</p>
                     </div>
                     <select name="sistema_operacional" class="form-select" style="border: #9F9F9F solid 1px; width: 350px; padding: 0px 10px; font-family: 'gilroy-light', sans-serif; color: #9F9F9F;">
-                        <option value="">Selecione um tipo de Operação</option>
+                        <option value="">{{ $product->sistema_operacional }}</option>
                         <option value="Realidade Virtual">Realidade Virtual</option>
                         <option value="Games Virtuais">Games Virtuais</option>
                         <option value="Cabines e Estações">Cabines e Estações</option>
@@ -144,10 +144,10 @@
                     </div>
                     <select name="tecnologias_utilizadas"  class="form-select" style="border: #9F9F9F solid 1px; width: 350px; padding: 0px 10px; font-family: 'gilroy-light', sans-serif; color: #9F9F9F;">
                         <option value="">{{ $product->tecnologias_utilizadas }}</option>
-                        <option value="B2C">Software</option>
-                        <option value="B2B">Hardware</option>
-                        <option value="B2B">Sensores</option>
-                        <option value="B2B">Inteligência Artificial</option>
+                        <option value="Software">Software</option>
+                        <option value="Hardware">Hardware</option>
+                        <option value="Sensores">Sensores</option>
+                        <option value="Inteligência Artificial">Inteligência Artificial</option>
                     </select>
                 </div>
             </div>
@@ -197,12 +197,6 @@
     </div>
 
     <script>
-    document.getElementById('img-preview').addEventListener('click', function () {
-        document.getElementById('image-input').click();
-    });
-    </script>
-
-    <script>
         function mostrarPreview(input, previewId) {
             const file = input.files[0];
             const preview = document.getElementById(previewId);
@@ -219,31 +213,35 @@
 
     <!-- Função de pré-visualização -->
     <script>
-        function mostrarPreview(input, previewId) {
+    function mostrarPreview(input, previewId) {
         const file = input.files[0];
         const preview = document.getElementById(previewId);
+        if (!file || !preview) return;
 
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                if (preview.tagName.toLowerCase() === 'img') {
-                    preview.src = e.target.result;
-                } else {
-                    const img = document.createElement('img');
-                    img.id = previewId;
-                    img.src = e.target.result;
-                    img.style.width = '100%';
-                    img.style.height = '100%';
-                    img.style.objectFit = 'cover';
-                    img.style.borderRadius = '8px';
-
-                    preview.parentNode.replaceChild(img, preview);
-                    }
-                }
-                reader.readAsDataURL(file);
-            }
+        const reader = new FileReader();
+        reader.onload = function (e) {
+        if (preview.tagName.toLowerCase() === 'img') {
+            preview.src = e.target.result;
+        } else {
+            const img = document.createElement('img');
+            img.id = previewId;
+            img.src = e.target.result;
+            img.style.width = '100%';
+            img.style.height = '100%';
+            img.style.objectFit = 'cover';
+            img.style.borderRadius = '8px';
+            preview.parentNode.replaceChild(img, preview);
         }
+        }
+        reader.readAsDataURL(file);
+        }
+
+        // clicar na imagem abre o seletor
+        document.getElementById('img-preview').addEventListener('click', function () {
+            document.getElementById('image-input').click();
+        });
     </script>
+
 
     @endsection
 </body>

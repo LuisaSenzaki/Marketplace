@@ -13,7 +13,7 @@
                     @csrf
                     @method('PUT')
                     <img src="{{ asset('storage/' . $hubProduct->image) }}" alt="{{ $hubProduct->name }}" id="img-preview">
-                    <input type="file" name="image" id="image-input" style="display: none;">
+                    <input type="file" name="image" id="image-input" style="display: none;" >
                     <div class="texto-info-edit">
                         <div class="title-texto-completo-edit">
                             <p>Título</p>

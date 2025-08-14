@@ -165,16 +165,27 @@
                             <input type="text" name="dimensoes" placeholder="Adicione as dimensões...">
                         </div>
                         <div class="infos-complementares-edit">
-                            <div class="spam-area">
-                                <p>Público Sugerido</p>
-                            </div>
-                            <input type="text" name="publico_sugerido" placeholder="Adicione o público-sugerido...">
+                        <div class="spam-area">
+                            <p>Público Sugerido</p>
+                        </div>
+                            <select name="publico_sugerido"  class="form-select" style="border: #9F9F9F solid 1px; width: 350px; padding: 0px 10px; font-family: 'gilroy-light', sans-serif; color: #9F9F9F;">
+                                <option value="">Selecione uma opção</option>
+                                <option value="B2C">B2C</option>
+                                <option value="B2B">B2B</option>
+                                <option value="B2C e B2B">B2C e B2B</option>
+                            </select>
                         </div>
                         <div class="infos-complementares-edit">
                             <div class="spam-area">
                                 <p>Tecnologias Utilizadas</p>
                             </div>
-                            <input type="text" name="tecnologias_utilizadas" placeholder="Adicione as tecnologias utilizadas...">
+                            <select name="tecnologias_utilizadas"  class="form-select" style="border: #9F9F9F solid 1px; width: 350px; padding: 0px 10px; font-family: 'gilroy-light', sans-serif; color: #9F9F9F;">
+                                <option value="">Selecione uma opção</option>
+                                <option value="Software">Software</option>
+                                <option value="Hardware">Hardware</option>
+                                <option value="Sensores">Sensores</option>
+                                <option value="Inteligência Artificial">Inteligência Artificial</option>
+                            </select>
                         </div>
                         <div class="infos-complementares-edit">
                             <div class="spam-area">

@@ -10,7 +10,7 @@
         <div class="hr-hub-product"><hr></div>
         <div class="text-hub-product">
             <h3>Sobre a Tecnologia</h3>
-            <p class="description-hub-product">{{ $hub->description }}</p>
+            <p class="description-hub-product" style=" white-space: normal; word-wrap: break-word; overflow-wrap: break-word;">{{ $hub->description }}</p>
         </div>
     </section>
 
