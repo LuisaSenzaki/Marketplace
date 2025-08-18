@@ -28,6 +28,7 @@ class Product extends Model
     'imagem5',
     'imagem6',
     'imagem7',
-    'imagem8'
+    'imagem8',
+    'video_id'
     ];
 }

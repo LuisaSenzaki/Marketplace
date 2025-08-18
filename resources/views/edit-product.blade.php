@@ -150,11 +150,18 @@
                         <option value="Inteligência Artificial">Inteligência Artificial</option>
                     </select>
                 </div>
+
+                <div class="infos-complementares-edit">
+                        <div class="spam-area">
+                            <p>Youtube ID</p>
+                        </div>
+                        <input type="text" name="video_id" value="{{ $product->video_id }}">
+                </div>
             </div>
 
             <div class="descricao-edit">
                 <div class="descricao-edit-title">
-                    <h3>Descrição da Ativação:</h3> <!-- ARRUMAR STYLE -->
+                    <h3>Descrição da Ativação:</h3>
                 </div>
                 <textarea name="description" id="description" >{{ $product->description }}</textarea>
             </div>

@@ -464,6 +464,8 @@ input[type=range]::-moz-range-thumb {
     width: 1396px;
     margin-top: 70px;
     margin-bottom: 40px;
+    align-items: center;
+    justify-content: center;
 }
 
 .left-hub {

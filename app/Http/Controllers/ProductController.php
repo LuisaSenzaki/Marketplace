@@ -87,6 +87,7 @@ class ProductController extends Controller
         'publico_sugerido' => 'nullable|string',
         'tecnologias_utilizadas' => 'nullable|string',
         'description' => 'nullable|string',
+        'video_id' => ['nullable','string','max:64','regex:/^[A-Za-z0-9_-]{5,}$/'],
         // 'imagens.*' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
         // 'imagens' => 'nullable|array|max:8',
     ]);
@@ -147,6 +148,7 @@ class ProductController extends Controller
         'publico_sugerido' => 'nullable|string',
         'tecnologias_utilizadas' => 'nullable|string',
         'description' => 'nullable|string',
+        'video_id' => ['nullable','string','max:64','regex:/^[A-Za-z0-9_-]{5,}$/'],
         // 'imagens.*' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
         // 'imagens' => 'nullable|array|max:8',
     ]);
@@ -185,5 +187,19 @@ class ProductController extends Controller
 
     return view('admin', compact('products', 'hubProducts'));
     }
+
+
+    public function getVideoId($id)
+    {
+        $product = Product::findOrFail($id);
+
+        // Retorna só o campo video_ip
+        return response()->json([
+            'id' => $product->id,
+            'video_id' => $product->video_id,
+        ]);
+    }
+
+
 
 }

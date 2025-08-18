@@ -56,3 +56,5 @@ Route::post('/calculadora/limpar', [CalcController::class, 'limpar'])->name('cal
 
 Route::get('/calc/count', [CalcController::class, 'count'])->name('calc.count');
 
+Route::get('/products/{id}/video-id', [ProductController::class, 'getVideoId']);
+
