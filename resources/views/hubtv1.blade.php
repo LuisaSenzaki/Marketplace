@@ -17,7 +17,7 @@
     <div class="container-hub">
         <!-- Área de Produtos -->
         <section class="left-hub">
-            <h2>Hub TV1</h2>
+            <h2>Laboratório de Projetos</h2>
             <div class="hub-products">
                 @foreach($hubProducts as $hub)
                 <a href="{{ route('produto-hub.show', $hub->id) }}" class="hub-product"> <!-- página do produto específico -->
