@@ -138,6 +138,12 @@ hr {
     height: 3px;
 }
 
+.categories-title {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .categories-title h2 {
     font-family: "gilroy-bold", sans-serif;
     font-size: 26px;
@@ -286,6 +292,16 @@ hr {
 main {
     display: flex;
     justify-content: center;
+}
+
+.search-bar input {
+    background-color: #e2e2e2;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.line hr{
+    height: 3px;
 }
 
 .container-search{

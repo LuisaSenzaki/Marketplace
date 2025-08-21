@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    @vite(['resources/css/app.css', 'resources/js/app.js','resources/css/header-style.css', 'resources/css/desktop.css'])
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header</title>
 
-    <!-- CSRF para fetch() -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-</head>
-<body>
     <div class="header-html">
         <div class="header">
             <div class="img-logo">
@@ -59,13 +48,72 @@
                     </a>
                 </div>
 
-                <div class="admin">
-                    <a href="{{ route('admin') }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#D0147A" class="bi bi-person-fill" viewBox="0 0 16 16" aria-hidden="true">
-                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-                        </svg>
-                    </a>
-                </div>
+                <div class="relative" x-data="{ open: false }" @keydown.escape.window="open = false">
+    <!-- Botão/ícone -->
+    <button
+        type="button"
+        @click="open = !open"
+        @click.outside="open = false"
+        class="focus:outline-none"
+        aria-haspopup="true"
+        :aria-expanded="open.toString()"
+        aria-label="Abrir menu do usuário"
+    >
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#D0147A" class="bi bi-person-fill" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+        </svg>
+        <span class="sr-only">Abrir menu do usuário</span>
+    </button>
+
+    <!-- Visitante: mostrar Entrar -->
+    @guest
+        <div
+            x-show="open"
+            x-transition
+            class="absolute right-0 mt-2 w-44 bg-white rounded shadow-lg py-2 z-50 ring-1 ring-black/5"
+        >
+            <a href="{{ route('login') }}"
+               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                Entrar
+            </a>
+        </div>
+    @endguest
+
+    <!-- Autenticado: admin OU edição + sair -->
+    @auth
+        <div
+            x-show="open"
+            x-transition
+            class="absolute right-0 mt-2 w-48 bg-white rounded shadow-lg py-2 z-50 ring-1 ring-black/5"
+        >
+            @can('admin')
+                <a href="{{ route('admin') }}"
+                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Tela de Admin
+                </a>
+                <a href="{{ route('profile.edit') }}"
+                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Editar perfil
+                </a>
+            @else
+                <a href="{{ route('profile.edit') }}"
+                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Editar perfil
+                </a>
+            @endcan
+
+            <form method="POST" action="{{ route('logout') }}">
+    @csrf
+    <button type="submit"
+            onclick="return confirm('Tem certeza que deseja sair?')"
+            class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+        Sair
+    </button>
+</form>
+        </div>
+    @endauth
+</div>
+
             </div>
         </div>
     </div>
@@ -127,5 +175,4 @@
   })();
 </script>
 @endif
-</body>
-</html>
+

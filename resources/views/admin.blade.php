@@ -1,4 +1,8 @@
+
 @extends('layouts.app')
+
+@section('header')
+@endsection
 
 @section('title', 'Página Admin')
 
@@ -6,6 +10,10 @@
 
 <container class="admin-page">
 <h1>Painel Administrativo</h1>
+
+<div class="profile-admin">
+    <p style="font-family: 'gilroy-bold'; font-size: 24px; color: #787878ff;">Olá, {{ auth()->user()->name }}!</p>
+</div>
 
 @if(session('success'))
     <p style="color: green;">{{ session('success') }}</p>
