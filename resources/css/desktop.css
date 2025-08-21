@@ -829,6 +829,16 @@ input[type=range]::-moz-range-thumb {
     border-radius: 8px;
 }
 
+#lightbox-img {
+  width: 90vw;          /* 90% da largura da tela */
+  height: 50vw;         /* mantém ~16:9 */
+  max-width: 960px;
+  max-height: 540px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #000;
+}
+
 /* Página Administrativa */
 
 .admin-page {
