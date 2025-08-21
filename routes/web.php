@@ -9,34 +9,35 @@ use App\Http\Controllers\CalcController;
 
 Route::get('/home', function () {
     return view('home');
-}) ->name('home');
+}) ->middleware(['auth', 'verified'])->name('home');
 
 Route::get('/header', function () {
     return view('header');
-});
+})->middleware(['auth', 'verified'])->name('header');
 
-Route::get('/search', [ProductController::class, 'search']) ->name('search');
-Route::get('/produto/{id}', [ProductController::class, 'show'])->name('produto.show');
-Route::get('/produtohub/{id}', [HubProductController::class, 'show'])->name('produto-hub.show');
-Route::get('/hubtv1', [HubProductController::class, 'hubtv1'])->name('hubtv1');
-Route::get('/cases', [CasesImagesController::class, 'cases'])->name('cases');
-Route::get('/calc', [CalcController::class, 'calc'])->name('calc');
-Route::delete('/produto/{id}', [CalcController::class, 'remover'])->name('remover.produto');
+Route::get('/search', [ProductController::class, 'search']) ->middleware(['auth', 'verified'])->name('search');
+Route::get('/produto/{id}', [ProductController::class, 'show'])->middleware(['auth', 'verified'])->name('produto.show');
+Route::get('/produtohub/{id}', [HubProductController::class, 'show'])->middleware(['auth', 'verified'])->name('produto-hub.show');
+Route::get('/hubtv1', [HubProductController::class, 'hubtv1'])->middleware(['auth', 'verified'])->name('hubtv1');
+Route::get('/cases', [CasesImagesController::class, 'cases'])->middleware(['auth', 'verified'])->name('cases');
+Route::get('/calc', [CalcController::class, 'calc'])->middleware(['auth', 'verified'])->name('calc');
+Route::delete('/produto/{id}', [CalcController::class, 'remover'])->middleware(['auth', 'verified'])->name('remover.produto');
 
 Route::post('/adicionar-a-calculadora/{id}', [CalcController::class, 'adicionar'])
-    ->name('calc.adicionar');
+    ->middleware(['auth', 'verified'])->name('calc.adicionar');
 
 // GET → apenas redireciona de volta (ou para a calc)
 Route::get('/adicionar-a-calculadora/{id}', function () {
     return redirect()->back();
 });
-Route::post('/calculadora/limpar', [CalcController::class, 'limpar'])->name('calc.limpar');
+Route::post('/calculadora/limpar', [CalcController::class, 'limpar'])->middleware(['auth', 'verified'])->name('calc.limpar');
 
-Route::get('/calc/count', [CalcController::class, 'count'])->name('calc.count');
+Route::get('/calc/count', [CalcController::class, 'count'])->middleware(['auth', 'verified'])->name('calc.count');
 
 Route::get('/', function () {
     return view('home');
-});
+})->middleware(['auth', 'verified'])->name('home');
+
 
 Route::get('/dashboard', function () {
     return view('home');

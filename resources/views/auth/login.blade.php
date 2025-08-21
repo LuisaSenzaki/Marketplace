@@ -38,10 +38,12 @@
                     {{ __('Esqueci minha senha') }}
                 </a>
             @endif
-
             <x-primary-button style="background: #D0147A; color: white; font-family: 'gilroy-light'; font-size: 15px;">
                 {{ __('Entrar') }}
-            </x-primary-button>
+            </x-primary-button>     
         </div>
+        <a style="display: flex; text-decoration: underline; margin-top: 10px; justify-content: right; color: black; font-family: 'gilroy-light'; font-size: 15px;" href="{{ route('register') }}">
+                {{ __('Criar uma conta') }}
+            </a>
     </form>
 </x-guest-layout>
