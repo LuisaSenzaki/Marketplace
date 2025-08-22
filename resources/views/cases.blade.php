@@ -15,7 +15,7 @@
 @section('content')
 <div class="container-hub">
     <section class="left-hub">
-        <h2>Cases</h2>
+        <h2>Cases Próprios</h2>
 
         <div class="cases-products">
             @foreach ($imagens as $imagem)
