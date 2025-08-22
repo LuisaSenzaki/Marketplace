@@ -39,85 +39,102 @@
                 <div class="profile-admin">
                     <p style="font-family: 'gilroy-bold'; font-size: 20px; color: #787878ff;">Olá, {{ auth()->user()->name }}!</p>
                 </div>
-                <div class="calc" style="position:relative;">
-                    <a href="{{ route('calc') }}" aria-label="Abrir calculadora">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#D0147A" class="bi bi-calculator-fill" viewBox="0 0 16 16" aria-hidden="true">
-                            <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm2 .5v2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5m0 4v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 12.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM7 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM10 6.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5z"/>
+               <style>
+                    /* Ícones base */
+                    .icon { 
+                        width: 1em; height: 1em; 
+                        display: inline-block; 
+                        vertical-align: middle; 
+                        flex: 0 0 auto;
+                    }
+                    .icon--xl { font-size: 35px; } /* tamanho da calc e do avatar */
+                    </style>
+
+                    <div class="calc">
+                    <a href="{{ route('calc') }}" aria-label="Abrir calculadora" style="position:relative; display:inline-block;">
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            class="icon icon--xl bi bi-receipt-cutoff" 
+                            viewBox="0 0 16 16" 
+                            fill="#D0147A" 
+                            aria-hidden="true" 
+                            focusable="false" 
+                            preserveAspectRatio="xMidYMid meet">
+                        <path d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5M11.5 4a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z"/>
+                        <path d="M2.354.646a.5.5 0 0 0-.801.13l-.5 1A.5.5 0 0 0 1 2v13H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1H15V2a.5.5 0 0 0-.053-.224l-.5-1a.5.5 0 0 0-.8-.13L13 1.293l-.646-.647a.5.5 0 0 0-.708 0L11 1.293l-.646-.647a.5.5 0 0 0-.708 0L9 1.293 8.354.646a.5.5 0 0 0-.708 0L7 1.293 6.354.646a.5.5 0 0 0-.708 0L5 1.293 4.354.646a.5.5 0 0 0-.708 0L3 1.293zm-.217 1.198.51.51a.5.5 0 0 0 .707 0L4 1.707l.646.647a.5.5 0 0 0 .708 0L6 1.707l.646.647a.5.5 0 0 0 .708 0L8 1.707l.646.647a.5.5 0 0 0 .708 0L10 1.707l.646.647a.5.5 0 0 0 .708 0L12 1.707l.646.647a.5.5 0 0 0 .708 0l.509-.51.137.274V15H2V2.118z"/>
                         </svg>
                         <span id="calc-badge" class="calc-badge" aria-live="polite" style="
-                            position:absolute; top:-3px; right:-6px; background:#D0147A; color:#fff; 
-                            min-width:20px; height:20px; border-radius:999px; font:600 11px/20px system-ui; 
-                            text-align:center; padding:0 6px; box-shadow:0 2px 6px rgba(0,0,0,.15); display:none;">0</span>
+                        position:absolute; top: -3px; right:-6px; background:#D0147A; color:#fff; 
+                        min-width:20px; height:20px; border-radius:999px; font:600 11px/20px system-ui; 
+                        text-align:center; padding:0 8px; box-shadow:0 2px 6px rgba(0,0,0,.15); display:none;">0</span>
                     </a>
-                </div>
+                    </div>
 
                 <div class="relative" x-data="{ open: false }" @keydown.escape.window="open = false">
-    <!-- Botão/ícone -->
-    <button
-        type="button"
-        @click="open = !open"
-        @click.outside="open = false"
-        class="focus:outline-none"
-        aria-haspopup="true"
-        :aria-expanded="open.toString()"
-        aria-label="Abrir menu do usuário"
-    >
-        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="#D0147A" class="bi bi-person-fill" viewBox="0 0 16 16" aria-hidden="true">
-            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-        </svg>
-        <span class="sr-only">Abrir menu do usuário</span>
-    </button>
+                    <button type="button"
+                            @click="open = !open"
+                            @click.outside="open = false"
+                            class="focus:outline-none"
+                            aria-haspopup="true"
+                            :aria-expanded="open.toString()"
+                            aria-label="Abrir menu do usuário">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#D0147A" class="icon icon--xl bi bi-person-circle" viewBox="0 0 16 16" aria-hidden="true" 
+                            focusable="false" 
+                            preserveAspectRatio="xMidYMid meet">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                            </svg>
+                        <span class="sr-only">Abrir menu do usuário</span>
+                    </button>
 
-    <!-- Visitante: mostrar Entrar -->
-    @guest
-        <div
-            x-show="open"
-            x-transition
-            class="absolute right-0 mt-2 w-44 bg-white rounded shadow-lg py-2 z-50 ring-1 ring-black/5"
-        >
-            <a href="{{ route('login') }}"
-               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                Entrar
-            </a>
-        </div>
-    @endguest
+                <!-- Visitante: mostrar Entrar -->
+                @guest
+                    <div
+                        x-show="open"
+                        x-transition
+                        class="absolute right-0 mt-2 w-44 bg-white rounded shadow-lg py-2 z-50 ring-1 ring-black/5"
+                    >
+                        <a href="{{ route('login') }}"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            Entrar
+                        </a>
+                    </div>
+                @endguest
 
-    <!-- Autenticado: admin OU edição + sair -->
-    @auth
-        <div
-            x-show="open"
-            x-transition
-            class="absolute right-0 mt-2 w-48 bg-white rounded shadow-lg py-2 z-50 ring-1 ring-black/5"
-        >
-            @can('admin')
-                <a href="{{ route('admin') }}"
-                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                    Tela de Admin
-                </a>
-                <a href="{{ route('profile.edit') }}"
-                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                    Editar perfil
-                </a>
-            @else
-                <a href="{{ route('profile.edit') }}"
-                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                    Editar perfil
-                </a>
-            @endcan
+                <!-- Autenticado: admin OU edição + sair -->
+                @auth
+                    <div
+                        x-show="open"
+                        x-transition
+                        class="absolute right-0 mt-2 w-48 bg-white rounded shadow-lg py-2 z-50 ring-1 ring-black/5"
+                    >
+                        @can('admin')
+                            <a href="{{ route('admin') }}"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                Tela de Admin
+                            </a>
+                            <a href="{{ route('profile.edit') }}"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                Editar perfil
+                            </a>
+                        @else
+                            <a href="{{ route('profile.edit') }}"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                Editar perfil
+                            </a>
+                        @endcan
 
-            <form method="POST" action="{{ route('logout') }}">
-    @csrf
-    <button type="submit"
-            onclick="return confirm('Tem certeza que deseja sair?')"
-            class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-        Sair
-    </button>
-</form>
-        </div>
-    @endauth
-</div>
-
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit"
+                                    onclick="return confirm('Tem certeza que deseja sair?')"
+                                    class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                Sair
+                            </button>
+                        </form>
+                    </div>
+                @endauth
             </div>
+        </div>
         </div>
     </div>
 
