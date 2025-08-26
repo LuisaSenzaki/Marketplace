@@ -26,10 +26,15 @@
             </svg>
         </button>
     </div>
+        <div class="options-page">
+            <div class="search-bar">
+                <input style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" type="text" id="searchInput" placeholder="Pesquisar por nome...">
+            </div>
+        </div>
 
     <div class="options-especifica">
         <button id="btn-produtos" style="cursor: pointer;">Produtos</button>
-        <button id="btn-hub" style="cursor: pointer;">Hub TV1</button>
+        <button id="btn-hub" style="cursor: pointer;">Laboratório de Projetos</button>
         <button id="btn-gerenciar" style="cursor: pointer;">Usuários</button>
     </div>
 
@@ -325,7 +330,7 @@
                     </form>
                 </div>
             </li>
-            <div class="hr-produto"><hr></div>
+            <!-- <div class="hr-produto"><hr></div> -->
         @endforeach
     </ul>
 </div>
@@ -364,7 +369,7 @@
                     </form>
                 </div>
             </li>
-            <div class="hr-produto"><hr></div>
+            <!-- <div class="hr-produto"><hr></div> -->
         @endforeach
     </ul>
 </div>
@@ -588,6 +593,49 @@ document.addEventListener('DOMContentLoaded', function () {
         btnNovoProduto.style.display = 'none'; // <-- É bom incluir para ocultar o botão
     }
     });
+
+     const searchInput = document.getElementById('searchInput');
+
+    searchInput.addEventListener('input', function() {
+        const searchTerm = searchInput.value.toLowerCase();
+        let activeList;
+
+        if (abaAtiva === 'produto') {
+            activeList = document.getElementById('lista-produtos');
+        } else if (abaAtiva === 'hub') {
+            activeList = document.getElementById('lista-hub');
+        } else if (abaAtiva === 'usuarios') {
+            activeList = document.getElementById('gerenciar-usuarios').querySelector('tbody');
+        }
+
+        if (activeList) {
+            // Se a lista de usuários estiver ativa, filtre as linhas da tabela
+            if (abaAtiva === 'usuarios') {
+                const rows = activeList.getElementsByTagName('tr');
+                for (const row of rows) {
+                    const name = row.cells[0].textContent.toLowerCase();
+                    const email = row.cells[1].textContent.toLowerCase();
+                    if (name.includes(searchTerm) || email.includes(searchTerm)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            } 
+                // Para as outras listas (produtos e hub), filtre os itens da lista
+                else {
+                    const listItems = activeList.getElementsByTagName('li');
+                    for (const item of listItems) {
+                        const name = item.querySelector('.produto-texto p').textContent.toLowerCase();
+                        if (name.includes(searchTerm)) {
+                            item.style.display = '';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    }
+                }
+            }
+        });
 });
 
 // Voltar para a tela de listagem
@@ -621,5 +669,4 @@ function voltarLista() {
     }
 }
 </script>
-
 @endsection
