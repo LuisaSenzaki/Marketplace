@@ -120,15 +120,11 @@ class ProductController extends Controller
         $data['image'] = $request->file('image')->store('produtos', 'public');
     }
 
-    // Salvar imagens adicionais
-    if ($request->hasFile('imagens')) {
-    $imagens = $request->file('imagens');
-    foreach ($imagens as $index => $imagem) {
-        if ($index >= 8) break; // Garante no máximo 8
-
-        $path = $imagem->store('produtos', 'public');
-        $data['imagem' . ($index + 1)] = $path;
-    }
+   for ($i = 1; $i <= 8; $i++) {
+        $campo_imagem = 'imagem' . $i;
+        if ($request->hasFile($campo_imagem)) {
+            $data[$campo_imagem] = $request->file($campo_imagem)->store('produtos', 'public');
+        }
     }
 
     Product::create($data);

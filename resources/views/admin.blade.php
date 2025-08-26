@@ -245,19 +245,41 @@
                     <textarea name="description" placeholder="Adicione a descrição da Ativação..."></textarea>
                 </div>
             </div>
-
             <div class="img-cases-add"> 
                 <label>Espaço de Cases</label>
-                <div id="drop-zone" style="border: 1px solid #888; background: #eee; text-align: center; padding: 40px; cursor: pointer; border-radius:8px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#333" class="bi bi-upload" viewBox="0 0 16 16">
-                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
-                        <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z"/>
-                    </svg>
-                    <p>Adicione até 8 Arquivos</p>
-                    <input type="file" name="imagens[]" id="imagens" accept="image/*" multiple style="display: none;">
+                <div class="cases-imagens-add">
+                    <h3>Adicione 4 cases próprios</h3>
+                    <div class="imagem-box-cases">
+                    @for ($i = 1; $i <= 4; $i++)
+                        <div class="imagem-box" style="cursor: pointer; width: 200px; height: 200px; border: 1px solid #9F9F9F; border-radius: 8px; padding: 10px; display: flex; justify-content: center; align-items: center;">
+                            <label for="imagem{{ $i }}" style="cursor: pointer; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
+                                <img id="preview-imagem{{ $i }}" src="" alt="Preview Imagem {{ $i }}" style="display: none; width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                                <svg id="svg-upload-{{ $i }}" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#333" class="bi bi-upload" viewBox="0 0 16 16">
+                                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                    <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z"/>
+                                </svg>
+                            </label>
+                            <input type="file" name="imagem{{ $i }}" id="imagem{{ $i }}" style="display: none;" accept="image/*" onchange="mostrarPreview(this, 'preview-imagem{{ $i }}', 'svg-upload-{{ $i }}')">
+                        </div>
+                    @endfor
+                    </div>
                 </div>
-                <div id="files-list">
-                    Nenhum arquivo selecionado.
+                 <div class="cases-imagens-add">
+                    <h3>Adicione 4 Cases Gerais</h3>
+                    <div class="imagem-box-cases">
+                    @for ($i = 5; $i <= 8; $i++)
+                        <div class="imagem-box" style="cursor: pointer; width: 200px; height: 200px; border: 1px solid #9F9F9F; border-radius: 8px; padding: 10px; display: flex; justify-content: center; align-items: center;">
+                            <label for="imagem{{ $i }}" style="cursor: pointer; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
+                                <img id="preview-imagem{{ $i }}" src="" alt="Preview Imagem {{ $i }}" style="display: none; width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                                <svg id="svg-upload-{{ $i }}" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#333" class="bi bi-upload" viewBox="0 0 16 16">
+                                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                    <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z"/>
+                                </svg>
+                            </label>
+                            <input type="file" name="imagem{{ $i }}" id="imagem{{ $i }}" style="display: none;" accept="image/*" onchange="mostrarPreview(this, 'preview-imagem{{ $i }}', 'svg-upload-{{ $i }}')">
+                        </div>
+                    @endfor
+                    </div>
                 </div>
             </div>
 
@@ -581,6 +603,22 @@ function voltarLista() {
     listaProdutos.style.display = abaAtiva === 'produto' ? 'block' : 'none';
     listaHub.style.display = abaAtiva === 'hub' ? 'block' : 'none';
     btnNovoProduto.style.display = 'inline-flex';
+}
+</script>
+
+<script>
+    function mostrarPreview(input, imgPreviewId, svgUploadId) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            document.getElementById(imgPreviewId).src = e.target.result;
+            document.getElementById(imgPreviewId).style.display = 'block';
+            document.getElementById(svgUploadId).style.display = 'none'; // Esconde o SVG
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
 }
 </script>
 

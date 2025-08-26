@@ -1657,6 +1657,8 @@ table td{
     font-family: 'gilroy-light', sans-serif;
 }
 
-.btn btn-success {
-
+.imagem-box-cases {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
 }
