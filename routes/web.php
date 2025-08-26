@@ -6,7 +6,10 @@ use App\Http\Controllers\CasesImagesController;
 use App\Http\Controllers\HubProductController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CalcController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 
+
+Route::middleware(['auth', 'is_approved'])->group(function () {
 Route::get('/home', function () {
     return view('home');
 }) ->middleware(['auth', 'verified'])->name('home');
@@ -50,12 +53,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+});
+
 // ----- Rotas ADMIN protegidas por Gate can:admin -----
 Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::get('/admin', [ProductController::class, 'admin'])->name('admin');
     Route::post('/admin/store', [ProductController::class, 'store'])->name('admin.store');
     Route::delete('/admin/{product}', [ProductController::class, 'destroy'])->name('admin.destroy');
-
+    // Route::get('/admin/users', [ProductController::class, 'index'])->name('admin');
+    Route::post('/admin/users/{user}/approve', [ProductController::class, 'approve'])->name('admin.users.approve');
+    Route::post('/admin/users/{user}/disapprove', [ProductController::class, 'disapprove'])->name('admin.users.disapprove');
     Route::resource('hub-admin', HubProductController::class)
         ->names('hub-admin')
         ->parameters(['hub-admin' => 'hubProduct']);

@@ -30,6 +30,7 @@
     <div class="options-especifica">
         <button id="btn-produtos" style="cursor: pointer;">Produtos</button>
         <button id="btn-hub" style="cursor: pointer;">Hub TV1</button>
+        <button id="btn-gerenciar" style="cursor: pointer;">Usuários</button>
     </div>
 
     <div class="hr-options"><hr></div>
@@ -345,7 +346,53 @@
         @endforeach
     </ul>
 </div>
+
+<div id="gerenciar-usuarios" style="display: none;">
+    <div class="gerenciar-container">
+        <h1>Gerenciar Usuários</h1>
+        <div class="card">
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($users as $user)
+                            <tr>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td style="color: {{ $user->is_approved ? 'green' : 'orange' }}">
+                                    {{ $user->is_approved ? 'Aprovado' : 'Pendente' }}
+                                </td>
+                                <td>
+                                    @if ($user->is_approved)
+                                        <form action="{{ route('admin.users.disapprove', $user) }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger" style="color: red;">Desativar</button>
+                                        </form>
+                                    @else
+                                        <form action="{{ route('admin.users.approve', $user) }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn btn-success" style="color: green;">Aprovar</button>
+                                        </form>
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 </container>
+
+
 
 <!-- Script de Alerta de Exclusão de produtos -->
 <script>
@@ -461,9 +508,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const formProduto   = document.getElementById('formulario-produto');
     const formHub       = document.getElementById('formulario-hub');
 
+    const gerenciarUsuarios = document.getElementById('gerenciar-usuarios');
+    const btnUsuarios = document.getElementById('btn-gerenciar');
+
     btnProdutos.addEventListener('click', function () {
         abaAtiva = 'produto';
         listaProdutos.style.display = 'block';
+        gerenciarUsuarios.style.display = 'none';
         listaHub.style.display = 'none';
         formProduto.style.display = 'none';
         formHub.style.display = 'none';
@@ -473,7 +524,18 @@ document.addEventListener('DOMContentLoaded', function () {
     btnHub.addEventListener('click', function () {
         abaAtiva = 'hub';
         listaProdutos.style.display = 'none';
+        gerenciarUsuarios.style.display = 'none';
         listaHub.style.display = 'block';
+        formProduto.style.display = 'none';
+        formHub.style.display = 'none';
+        btnNovoProduto.style.display = 'inline-flex';
+    });
+
+    btnUsuarios.addEventListener('click', function () {
+        abaAtiva = 'usuarios';
+        listaProdutos.style.display = 'none';
+        listaHub.style.display = 'none';
+        gerenciarUsuarios.style.display = 'block';
         formProduto.style.display = 'none';
         formHub.style.display = 'none';
         btnNovoProduto.style.display = 'inline-flex';
@@ -482,12 +544,27 @@ document.addEventListener('DOMContentLoaded', function () {
     btnNovoProduto.addEventListener('click', function (event) {
         if (abaAtiva === 'produto') {
             formProduto.style.display = 'block';
+            gerenciarUsuarios.style.display = 'none';
             listaProdutos.style.display = 'none';
         } else {
             formHub.style.display = 'block';
             listaHub.style.display = 'none';
+            gerenciarUsuarios.style.display = 'none';
         }
         event.target.style.display = 'none';
+    });
+
+    btnUsuarios.addEventListener('click', function (event) {
+       abaAtiva = 'usuarios'; // <-- Adicione esta linha
+
+    if (abaAtiva === 'usuarios') {
+        gerenciarUsuarios.style.display = 'block';
+        formProduto.style.display = 'none';
+        formHub.style.display = 'none';
+        listaProdutos.style.display = 'none';
+        listaHub.style.display = 'none'; // <-- É bom incluir para ter certeza
+        btnNovoProduto.style.display = 'none'; // <-- É bom incluir para ocultar o botão
+    }
     });
 });
 

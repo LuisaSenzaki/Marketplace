@@ -1590,3 +1590,73 @@ input[type=range]::-moz-range-thumb {
     padding: 10px;
 }
 
+.email-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.email-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+.email-header h1{
+    font-family: 'gilroy-bold', sans-serif;
+    font-size: 24px;
+    color: #D0147A;
+}
+
+.email-container h2{
+    font-family: 'gilroy-bold', sans-serif;
+    font-size: 20px;
+    color:#000;
+}
+
+.email-container p {
+    font-family: 'gilroy-light', sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+
+.email-container a {
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background-color: #D0147A;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.email-container a:hover {
+    background-color: #7c0b49;
+}
+
+.gerenciar-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+table td{
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'gilroy-light', sans-serif;
+}
+
+.btn btn-success {
+
+}

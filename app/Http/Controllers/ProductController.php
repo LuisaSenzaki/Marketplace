@@ -6,6 +6,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\HubProduct;
+use App\Models\User;
+use App\Mail\UserApproved; // Importe o Mailable
+use Illuminate\Support\Facades\Mail; // Importe a fachada de Mail
 
 class ProductController extends Controller
 {
@@ -14,6 +17,26 @@ class ProductController extends Controller
      */
     public function index()
     {
+        //   $pendingUsers = User::where('is_approved', false)->get();
+        // $approvedUsers = User::where('is_approved', true)->get();
+
+        // return view('admin', compact('pendingUsers', 'approvedUsers'));
+    }
+
+     public function approve(User $user)
+    {
+        $user->update(['is_approved' => 1]);
+
+        Mail::to($user->email)->send(new UserApproved($user));
+
+    return redirect()->route('admin')->with('success', 'Usuário aprovado e e-mail de notificação enviado com sucesso!');
+    }
+
+    public function disapprove(User $user)
+    {
+        $user->update(['is_approved' => 0]);
+
+        return redirect()->route('admin')->with('success', 'Usuário desaprovado com sucesso!');
     }
 
     public function search(Request $request)
@@ -185,7 +208,9 @@ class ProductController extends Controller
         $products = Product::all();
         $hubProducts = HubProduct::all();
 
-    return view('admin', compact('products', 'hubProducts'));
+        $users = User::orderBy('is_approved')->get();
+
+        return view('admin', compact('users', 'products', 'hubProducts'));
     }
 
 
