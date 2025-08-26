@@ -172,7 +172,7 @@
         <!-- Cases Adicionados referente a ativação-->
         <div class="cases-container-edit">
             <h2>Cases</h2>     
-            <h3>Adicione 4 cases próprios</h3>  
+            <h3 style="font-family:'gilroy-bold'; font-size: 18px;">Adicione 4 cases próprios</h3>  
             <div class="cases-imagens-edit">
                 @for ($i = 1; $i <= 4; $i++)
                     @php
@@ -195,7 +195,7 @@
                     </div>
                 @endfor
             </div>
-            <h3>Adicione 4 cases gerais</h3>
+            <h3 style="font-family:'gilroy-bold'; font-size: 18px;">Adicione 4 cases gerais</h3>
         <div class="cases-imagens-edit">
                 @for ($i = 5; $i <= 8; $i++)
                     @php

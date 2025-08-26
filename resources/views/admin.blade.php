@@ -253,7 +253,7 @@
             <div class="img-cases-add"> 
                 <label>Espaço de Cases</label>
                 <div class="cases-imagens-add">
-                    <h3>Adicione 4 cases próprios</h3>
+                    <h3 style="font-family:'gilroy-bold'; font-size: 18px; margin-bottom: 10px;">Adicione 4 cases próprios</h3>
                     <div class="imagem-box-cases">
                     @for ($i = 1; $i <= 4; $i++)
                         <div class="imagem-box" style="cursor: pointer; width: 200px; height: 200px; border: 1px solid #9F9F9F; border-radius: 8px; padding: 10px; display: flex; justify-content: center; align-items: center;">
@@ -270,7 +270,7 @@
                     </div>
                 </div>
                  <div class="cases-imagens-add">
-                    <h3>Adicione 4 Cases Gerais</h3>
+                    <h3 style="font-family:'gilroy-bold'; font-size: 18px; margin-bottom: 10px;">Adicione 4 cases gerais</h3>
                     <div class="imagem-box-cases">
                     @for ($i = 5; $i <= 8; $i++)
                         <div class="imagem-box" style="cursor: pointer; width: 200px; height: 200px; border: 1px solid #9F9F9F; border-radius: 8px; padding: 10px; display: flex; justify-content: center; align-items: center;">
