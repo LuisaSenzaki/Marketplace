@@ -13,7 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
-            'is_approved' => CheckUserIsApproved::class, // Registre seu middleware aqui
+            'is_approved' => CheckUserIsApproved::class, 
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

@@ -56,11 +56,11 @@
   .lb-content { position: relative; z-index: 1; max-width: 90vw; max-height: 90vh; display: flex; align-items: center; justify-content: center; }
   /* Imagem do destaque — retângulo fixo igual pra todas */
   #lightbox-img {
-    width: 90vw;        /* responsivo */
-    height: 50vw;       /* ~16:9 */
-    max-width: 960px;   /* limites em telas grandes */
+    width: 90vw;  
+    height: 50vw;       
+    max-width: 960px;   
     max-height: 540px;
-    object-fit: cover;  /* preenche o retângulo (corta se precisar) */
+    object-fit: cover; 
     border-radius: 8px;
     background: #000;
     box-shadow: 0 10px 30px rgba(0,0,0,.4);

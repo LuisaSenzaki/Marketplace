@@ -582,15 +582,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     btnUsuarios.addEventListener('click', function (event) {
-       abaAtiva = 'usuarios'; // <-- Adicione esta linha
+       abaAtiva = 'usuarios'; 
 
     if (abaAtiva === 'usuarios') {
         gerenciarUsuarios.style.display = 'block';
         formProduto.style.display = 'none';
         formHub.style.display = 'none';
         listaProdutos.style.display = 'none';
-        listaHub.style.display = 'none'; // <-- É bom incluir para ter certeza
-        btnNovoProduto.style.display = 'none'; // <-- É bom incluir para ocultar o botão
+        listaHub.style.display = 'none';
+        btnNovoProduto.style.display = 'none'; 
     }
     });
 
@@ -609,7 +609,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         if (activeList) {
-            // Se a lista de usuários estiver ativa, filtre as linhas da tabela
+
             if (abaAtiva === 'usuarios') {
                 const rows = activeList.getElementsByTagName('tr');
                 for (const row of rows) {
@@ -662,7 +662,7 @@ function voltarLista() {
         reader.onload = function(e) {
             document.getElementById(imgPreviewId).src = e.target.result;
             document.getElementById(imgPreviewId).style.display = 'block';
-            document.getElementById(svgUploadId).style.display = 'none'; // Esconde o SVG
+            document.getElementById(svgUploadId).style.display = 'none';
         };
 
         reader.readAsDataURL(input.files[0]);

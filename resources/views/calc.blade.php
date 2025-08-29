@@ -46,24 +46,29 @@
                          </div>
                     @endforeach
                </div>
-
-               <div class="calc-valor-total">
-                    <h5>Total</h5>
-                    <div class="calc-valor">
-                         <span>{{ $produtos->count() }} Ativação(s) Escolhida(s)</span>
-                         <span>A partir de R$ {{ number_format($total, 2, ',', '.') }}</span>
+               <div>
+                    <div class="calc-valor-total">
+                         <h5>Total</h5>
+                         <div class="calc-valor">
+                              <span>{{ $produtos->count() }} Ativação(s) Escolhida(s)</span>
+                              <span>A partir de R$ {{ number_format($total, 2, ',', '.') }}</span>
+                         </div>
                     </div>
-               </div>
 
-               <div class="btns-calc">
-                    <button type="submit" id="btn-limpar">Limpar</button>
-                    <form id="form-limpar" method="POST" action="{{ route('calc.limpar') }}" class="btn-calc-limpar">
-                         @csrf
-                    </form>
-                    <div class="btn-calc-contato">
-                         <a href="#" class="btn-contato">Entre em Contato</a>
+                    <div class="info-calc">
+                         <h3>Informações Adicionais do Evento</h3>
+                         <textarea id="descricao-calc" name="descricao" style="width: 100%; height: 150px; border-radius: 8px;" placeholder="Adicione informações sobre o evento, personalização das ativações e outras observações..."></textarea>
                     </div>
-                    
+                    <div class="btns-calc">
+                         <button type="submit" id="btn-limpar">Limpar</button>
+                         <form id="form-limpar" method="POST" action="{{ route('calc.limpar') }}" class="btn-calc-limpar">
+                              @csrf
+                         </form>
+                         <div class="btn-calc-contato">
+                              <button id="contactButton" data-product-id="123">Enviar Pedido de Orçamento</button>
+                         </div>
+                         
+                    </div>
                </div>
           </div>
      </div>
@@ -87,6 +92,53 @@
      });
 
      </script>
+
+    <script>
+    const webhookURL = 'https://n8n.xlab.app.br/webhook-test/ae3e2c54-aabb-44bb-a1d4-4cc53fa9de52';
+
+    const contactButton = document.getElementById('contactButton');
+
+    const descricaoTextarea = document.getElementById('descricao-calc');
+
+    contactButton.addEventListener('click', () => {
+        const productId = contactButton.getAttribute('data-product-id');
+        
+        const payload = {
+            product_id: productId,
+            user_id: '{{ auth()->id() }}',
+            user_email: '{{ auth()->user()->email }}',
+            produtos: [
+                @foreach ($produtos as $produto)
+                { id: {{ $produto->id }}, name: "{{ $produto->name }}", price: {{ $produto->price }} },
+                @endforeach
+            ],
+            total: {{ $total }},
+            descricao: descricaoTextarea.value
+        };
+
+        fetch(webhookURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Falha na requisição para o webhook.');
+        })
+        .then(data => {
+            console.log('Webhook acionado com sucesso:', data);
+            alert('Sua solicitação foi enviada!');
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            alert('Ocorreu um erro ao enviar sua solicitação. Tente novamente.');
+        });
+    });
+</script>
 
     @endsection
 </body>

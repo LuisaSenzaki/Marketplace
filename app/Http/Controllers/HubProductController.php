@@ -15,7 +15,7 @@ class HubProductController extends Controller
 
     public function create()
     {
-        return view('hubtv1-create'); // Crie essa view se quiser
+        return view('hubtv1-create');
     }
 
     public function store(Request $request)
