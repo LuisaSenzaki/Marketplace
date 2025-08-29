@@ -95,7 +95,7 @@
      </script>
 
     <script>
-    const webhookURL = 'https://n8n.xlab.app.br/webhook-test/ae3e2c54-aabb-44bb-a1d4-4cc53fa9de52';
+    const webhookURL = 'https://n8n.xlab.app.br/webhook/ae3e2c54-aabb-44bb-a1d4-4cc53fa9de52';
 
     const contactButton = document.getElementById('contactButton');
 
@@ -107,6 +107,7 @@
         const payload = {
             product_id: productId,
             user_id: '{{ auth()->id() }}',
+            user_name: '{{ auth()->user()->name }}',
             user_email: '{{ auth()->user()->email }}',
             produtos: [
                 @foreach ($produtos as $produto)
