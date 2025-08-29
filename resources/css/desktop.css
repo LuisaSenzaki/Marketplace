@@ -1430,8 +1430,8 @@ input[type=range]::-moz-range-thumb {
 .btns-calc {
     display: flex;
     flex-direction: row;
-    gap: 30px;
-    justify-content: right;
+    gap: 15px;
+    justify-content: center;
     align-items: center;
     margin-top: 30px;
 }
@@ -1440,7 +1440,7 @@ input[type=range]::-moz-range-thumb {
     flex: 0;
 }
 
-.btn-contato {
+#contactButton {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1456,11 +1456,11 @@ input[type=range]::-moz-range-thumb {
     transform: translateY(0);
 }
 
-.btn-contato:hover {
+#contactButton:hover {
     background-color: #7c0b49;
 }
 
-.btn-contato:active {
+#contactButton:active {
     transform: translateY(-2px);
 }
 

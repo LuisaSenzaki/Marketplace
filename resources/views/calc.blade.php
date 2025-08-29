@@ -46,7 +46,7 @@
                          </div>
                     @endforeach
                </div>
-               <div>
+               <div style="display:flex;flex-direction:column;gap:30px">
                     <div class="calc-valor-total">
                          <h5>Total</h5>
                          <div class="calc-valor">
@@ -55,10 +55,11 @@
                          </div>
                     </div>
 
-                    <div class="info-calc">
-                         <h3>Informações Adicionais do Evento</h3>
+                    <div class="info-calc" style="display:flex;flex-direction:column;gap:10px;padding:0 15px;">
+                         <h3 style="padding:15px;">Informações Adicionais do Evento</h3>
                          <textarea id="descricao-calc" name="descricao" style="width: 100%; height: 150px; border-radius: 8px;" placeholder="Adicione informações sobre o evento, personalização das ativações e outras observações..."></textarea>
                     </div>
+
                     <div class="btns-calc">
                          <button type="submit" id="btn-limpar">Limpar</button>
                          <form id="form-limpar" method="POST" action="{{ route('calc.limpar') }}" class="btn-calc-limpar">
