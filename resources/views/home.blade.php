@@ -21,17 +21,20 @@
     <!-- Sessão introdutória do Marketplace XLab -->
      <container class="page-intro">
         <container class="home">
-            <div class="inicial">     
+            <div class="perfil-usuario">
+                    <p style="font-family: 'gilroy-bold'; font-size: 25px; color: #D0147A;">Olá, {{ auth()->user()->name }}!</p>
+                </div> 
+            <div class="inicial">   
                 <div class="left-content">
                     <div class="text-content">
                         <div class="paragraph">
-                            <h1>Marketplace XLab</h1>
-                            <h1>Seu Próximo Projeto Começa Aqui</h1>
+                            <h1 class="title1-h1">Marketplace XLab</h1>
+                            <h1 class="title2-h1">Seu Próximo Projeto Começa Aqui</h1>
                         </div>
 
                         <div class="text">
                             <p>O Marketplace XLab centraliza todas as ativações, soluções e serviços da Xlab num só lugar, pensado especialmente para os criativos da TV1.</p>
-                            <p>Agilidade e autonomia para transformar suas ideias em projetos de sucesso.</p>
+                            <p class="p2">Agilidade e autonomia para transformar suas ideias em projetos de sucesso.</p>
                         </div>
                     </div>
                     <container class="icons">
@@ -53,11 +56,6 @@
                 </div>
             </div>
         </container>
-
-    <!-- Sessão de produtos sugeridos -->
-        <section class="details">
-            <container class="products"></container>
-        </section>
 
     <!-- Sessão de categorias -->
         <section class="categories">

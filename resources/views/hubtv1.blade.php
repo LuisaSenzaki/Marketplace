@@ -23,8 +23,8 @@
             <div class="hub-products">
                 @foreach($hubProducts as $hub)
                 <a href="{{ route('produto-hub.show', $hub->id) }}" class="hub-product"> <!-- página do produto específico -->
-                    
-                        <img src="{{ asset('storage/' . $hub->image) }}" alt="{{ $hub->name }}">
+                        <div class="image-product-hub">
+                            <img src="{{ asset('storage/' . $hub->image) }}" alt="{{ $hub->name }}"> </div>
                         <h3 class="name-product-hub">{{ $hub->name }}</h3>
                         <p class="description-product" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{ $hub->description }}</p>
 </a>

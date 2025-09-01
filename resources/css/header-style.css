@@ -116,3 +116,61 @@ form {
     align-items: center;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+
+    /* Home */
+    .social a {
+        display: none;
+    }
+
+    .search-options a {
+        font-size: 13px;
+    }
+
+    .search-options{
+        gap: 12px;
+    }
+
+    .header-html{
+        padding: 18px 0px;
+    }
+
+    .header{
+        margin: 8px 15px;
+        gap: 10px;
+    }
+
+    .profile-admin{
+        display: none;
+    }
+
+    .img-logo{
+        display: none;
+    }
+
+    .search{
+        gap: 15px;
+    }
+
+    .options{
+        gap: 8px;
+        padding-top: 5px;
+        align-items: flex-start;
+    }
+
+    .options svg{
+        width: 25px;
+        height: 25px;
+    }
+
+    .input{
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+
+    .button-search{
+        padding: 6px 12px;
+    }
+
+}

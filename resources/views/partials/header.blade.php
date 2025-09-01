@@ -21,8 +21,9 @@
 
                 <section class="search-filters">
                     <section class="search-options">
+                        <a href="{{ route('home') }}">Home</a>
                         <a href="{{ route('search') }}">Ativações</a>
-                        <a href="{{ route('hubtv1') }}">Laboratório de Projetos</a>
+                        <a href="{{ route('hubtv1') }}">Projetos</a>
                         <a href="{{ route('cases') }}">Cases</a>
                     </section>
                     <section class="social">

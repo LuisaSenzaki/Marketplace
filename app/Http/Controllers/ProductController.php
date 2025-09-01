@@ -80,7 +80,29 @@ class ProductController extends Controller
     // Busca tudo final
     $products = $query->get();
 
-    return view('search', compact('products', 'searchTerm'));
+     $categorias = [
+        'Eventos Corporativos',
+        'Eventos de Agronegócio',
+        'Eventos de Saúde',
+        'Eventos de Beleza e Cosméticos',
+        'Eventos Alimentícios'
+    ];
+
+    $sistemas = [
+        'Realidade Virtual',
+        'Games Virtuais',
+        'Cabines e Estações',
+        'Experiências Interativas',
+        'ChatBots e Assistentes'
+    ];
+
+    $modalidades = [
+        'Presencial',
+        'Virtual',
+        'Híbrido'
+    ];
+
+    return view('search', compact('products', 'searchTerm', 'categorias', 'sistemas', 'modalidades'));
 }
 
 
