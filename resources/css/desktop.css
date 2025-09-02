@@ -1672,6 +1672,10 @@ table td{
     gap: 10px;
 }
 
+.form-select {
+    
+}
+
 @media (max-width: 768px) {
 
     .perfil-usuario {
@@ -1980,6 +1984,231 @@ table td{
 
     .container-product{
         width: 400px;
+        margin-top: 0;
+        gap: 30px;
+        padding: 0px 20px;
+        margin-bottom: 0;
     }
+
+    .information-inicial {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .image-container-left img {
+        width: 500px;
+        height: 300px;
+    }
+
+    .valor-container {
+        flex-direction: column;
+    }
+
+    .valor {
+        text-align: center;
+    }
+
+    .information-detalhes p {
+        font-size: 14px;
+    }
+
+    .info h4 {
+        font-size: 14px;
+    }
+
+    .info p{
+        font-size: 12px;
+    }
+
+    .tempo-container p {
+        font-size: 14px;
+    }
+
+    .cases-imgs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cases-imgs img {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* Página de projetos */
+
+    .hub-product-page {
+        width: 400px;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0px 10px;
+        gap: 35px;
+    }
+
+    .text-hub-product p {
+        font-size: 14px;
+    }
+
+    .hub-product-page img {
+        border-radius: 8px;
+    }
+
+    /* Calculadora */
+
+    .price-calc {
+        display: none;
+    }
+
+    .container.py-5 {
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+
+    .produto-calc-item {
+        flex-direction: column;
+        align-items: first baseline;
+    }
+
+    .produto-calc-item span {
+        display: flex;
+        align-items: last baseline;
+        display: none;
+    }
+
+    .qnt-ativac {
+        display: none;
+    }
+
+    .calc-valor  {
+        justify-content: center;
+    }
+
+    #contactButton {
+        font-size: 12px;
+    }
+
+    #btn-limpar {
+        font-size: 12px;
+    }
+
+    /* página adm */
+
+    .admin-page {
+        width: 400px;
+        margin-top: 0;
+    }
+
+    .add-produto button {
+        font-size: 14px;
+    }
+
+    .produto-texto p {
+        font-size: 14px;
+    }
+
+    .btn-edicao {
+        padding: 15px;
+        align-items:first baseline;
+    }
+
+    .options-especifica button {
+        font-size: 14px;
+    }
+
+    .img-product-adm {
+        --thumb: clamp(125px, 14vw, 120px);
+        width: var(--thumb);
+        aspect-ratio: 1 / 1;     
+        overflow:hidden;
+        border-radius:12px;
+        flex: 0 0 var(--thumb);  
+        }
+
+    .perfil-img {
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        object-position:center;
+        display:block;          
+    }
+
+    .produto-texto {
+        gap: 12px;
+    }
+
+    .btn-edicao a svg {
+        width: 20px;
+    }
+
+    .form-excluir button svg {
+        width: 20px;
+    }
+
+    #btn-gerenciar{
+        display: none;
+    }
+
+    /* Edição Produtos */
+    
+    .edit-produto {
+        width: 400px;
+        margin-top: 0;
+    }
+
+
+    .form-edit{
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  flex-wrap: wrap;           /* evita sobreposição em telas menores */
+}
+
+.first-container-edit{
+  flex: 0 0 420px;           /* largura fixa */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: static;
+}
+
+.second-section-edit{
+  flex: 1 1 300px;           /* ocupa o restante */
+  min-width: 280px;
+  position: static;
+  flex-direction: column;
+}
+
+#img-preview{ width:350px; height:200px; object-fit:cover; display:block; text-align: center; }
+
+.texto-completo-edit {
+    gap: 20px;
+}
+
+.cases-imagens-edit {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.infos-complementares-edit p {
+    width: 170px;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.spam-area {
+    display: flex;
+    width: 210px;
+    justify-content: center;
+}
+
+.form-select {
+    width: 170px;
+}
+
+.descricao-edit textarea {
+    height: 400px;
+}
+
+.imagem-box {
+    width: 180px;
+    height: 180px;
+}
 
 }

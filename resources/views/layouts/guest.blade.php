@@ -24,7 +24,7 @@
                 </a>
             </div>
 
-            <div style="background: #e2e2e2; padding: 20px; border-radius: 10px; width: 100%; max-width: 400px; margin-top: 20px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+            <div style="background: #e2e2e2; padding: 20px; border-radius: 10px; max-width: 400px; margin-top: 20px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
                 {{ $slot }}
             </div>
         </div>

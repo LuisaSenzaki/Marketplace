@@ -21,7 +21,7 @@
           <div class="container-produtos-calc">
                <div class="header-produto-calc">
                     <h3>Produtos Selecionados</h3>
-                    <h3>A partir de</h3>
+                    <h3 class="price-calc">A partir de</h3>
                </div>
                <div class="produtos-calc">
                     @foreach ($produtos as $produto)
@@ -50,7 +50,7 @@
                     <div class="calc-valor-total">
                          <h5>Total</h5>
                          <div class="calc-valor">
-                              <span>{{ $produtos->count() }} Ativação(s) Escolhida(s)</span>
+                              <span class="qnt-ativac">{{ $produtos->count() }} Ativação(s) Escolhida(s)</span>
                               <span>A partir de R$ {{ number_format($total, 2, ',', '.') }}</span>
                          </div>
                     </div>

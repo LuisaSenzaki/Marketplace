@@ -302,7 +302,8 @@
         @foreach($products as $product)
             <li class="produto-infos"> 
                 <div class="left-side-infos">
-                    <img class="perfil-img" src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->name }}" style="object-fit: cover;">
+                    <div class="img-product-adm">
+                        <img class="perfil-img" src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->name }}"> </div>
                     <div class="produto-texto">
                         <p>{{ $product->name }} </p>
                         <p>{{ $product->modalidade }}</p>
@@ -341,7 +342,8 @@
         @foreach($hubProducts as $hub)
             <li class="produto-infos">
                 <div class="left-side-infos">
-                    <img class="perfil-img" src="{{ asset('storage/'.$hub->image) }}" alt="{{ $hub->name }}" style="object-fit: cover;">
+                    <div class="img-product-adm">
+                        <img class="perfil-img" src="{{ asset('storage/'.$hub->image) }}" alt="{{ $hub->name }}" style="object-fit: cover;"> </div>
                     <div class="produto-texto">
                         <p>{{ $hub->name }}</p>
                         <p>{{ $hub->modalidade }}</p>
