@@ -16,7 +16,7 @@
 
     @section('content')
      <div class="container py-5">
-          <h2>Calculadora</h2>
+          <h2>ORÇAMENTO</h2>
 
           <div class="container-produtos-calc">
                <div class="header-produto-calc">

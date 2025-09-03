@@ -21,7 +21,7 @@
         <section class="left-search">
     <form method="GET" action="{{ route('search') }}">
         <div class="filtros">
-            <div class="opcoes-filtros">
+            <!-- <div class="opcoes-filtros">
                 <h4>Eventos</h4>
                 <div class="conteudo-filtro">
                     @foreach($categorias as $categoria)
@@ -32,7 +32,7 @@
                         </label>
                     @endforeach
                 </div>
-            </div>
+            </div> -->
 
             <div class="opcoes-filtros">
                 <h4>Sistemas</h4>

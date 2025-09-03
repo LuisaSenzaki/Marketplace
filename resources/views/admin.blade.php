@@ -109,7 +109,7 @@
                         <input type="text" name="name" placeholder="Adicione um Título para a Ativação..." required>
                     </div>
                     <div class="texto-info-edit">
-                        <p style="font-family: 'gilroy-bold'; font-size: 24px;">Modalidade</p>
+                        <p style="" class="p-modalidade-add">Modalidade</p>
                         <div class="select-wrapper">
                             <select name="modalidade" class="form-select"
                             style="font-family: 'gilroy-light', sans-serif;
@@ -226,11 +226,11 @@
                             <p>Categoria Relacionada</p>
                         </div>
                         <select name="categoria" class="form-select" style="border: #9F9F9F solid 1px; width: 350px; padding: 0px 10px; font-family: 'gilroy-light', sans-serif; color: #9F9F9F;">
-                            <option value="">Selecione uma Categoria</option>
+                            <option value="">Selecione uma Opção</option>
                             <option value="Eventos Corporativos">Eventos Corporativos</option>
                             <option value="Eventos de Agronegócio">Eventos de Agronegócio</option>
                             <option value="Eventos de Saúde">Eventos de Saúde</option>
-                            <option value="Eventos de Beleza e Cosméticos">Eventos de Beleza e Cosméticos</option>
+                            <option value="Eventos de Beleza e Cosméticos">Eventos de Beleza</option>
                             <option value="Eventos Alimentícios">Eventos Alimentícios</option>
                         </select>
                     </div>
@@ -247,7 +247,8 @@
                     <div class="descricao-edit-title">
                         <h3>Descrição da Ativação:</h3>
                     </div>
-                    <textarea name="description" placeholder="Adicione a descrição da Ativação..."></textarea>
+                    <div class="desc-textarea">
+                    <textarea name="description" placeholder="Adicione a descrição da Ativação..."></textarea> </div>
                 </div>
             </div>
             <div class="img-cases-add"> 

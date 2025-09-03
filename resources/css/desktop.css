@@ -785,6 +785,9 @@ input[type=range]::-moz-range-thumb {
     gap: 20px;
 
 }
+.p-modalidade-add {
+
+font-family: 'gilroy-bold'; font-size: 24px;; }
 
 .information-detalhes h1{
     font-family: "gilroy-bold", sans-serif;
@@ -2167,6 +2170,8 @@ table td{
   flex-direction: column;
   gap: 16px;
   position: static;
+  justify-content: center;
+  align-items: center;
 }
 
 .second-section-edit{
@@ -2176,7 +2181,7 @@ table td{
   flex-direction: column;
 }
 
-#img-preview{ width:350px; height:200px; object-fit:cover; display:block; text-align: center; }
+#img-preview{ width:350px; height:200px; object-fit:cover; display:flex; text-align: center; justify-content: center; }
 
 .texto-completo-edit {
     gap: 20px;
@@ -2202,13 +2207,66 @@ table td{
     width: 170px;
 }
 
-.descricao-edit textarea {
-    height: 400px;
-}
 
 .imagem-box {
     width: 180px;
     height: 180px;
 }
+
+.title-texto-completo-edit p {
+    font-size: 16px;
+}
+
+.texto-info-edit input {
+    height: 32px;
+}
+
+.infos-principais-add {
+    flex-direction: column;
+}
+
+.imagem-box-cases {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.image-uploader {
+    width: 350px;
+    height: 350px;
+    justify-content: center;
+}
+
+.infos-principais-add {
+    align-items: center;
+}
+
+.texto-info-edit p {
+    font-size: 16px;
+}
+
+.container-infos-complementares-add {
+    flex-direction: column;
+    width: 400px;
+}
+
+
+.descricao-edit textarea {
+    display: flex;
+    height: 400px;
+    width: 350px;
+    align-items: center;
+    justify-content: center;
+}
+
+.desc-textarea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.first-container-add {
+    gap: 25px;
+}
+
+
 
 }
