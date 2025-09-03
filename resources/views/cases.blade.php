@@ -156,6 +156,8 @@
   prevBtn?.addEventListener('click', (e) => { e.stopPropagation(); show(current - 1); });
   nextBtn?.addEventListener('click', (e) => { e.stopPropagation(); show(current + 1); });
 
+  closeBtn?.addEventListener('click', close);
+
   // Fechar no backdrop
   lightbox.addEventListener('click', (e) => {
     const isBackdrop = e.target.classList.contains('lb-backdrop') || e.target.id === 'lightbox';
